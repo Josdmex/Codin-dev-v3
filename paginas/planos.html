@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Planos Plus | CodinDev</title>
+  <meta name="description" content="Desbloqueie cursos premium, vidas infinitas e muito mais com o CodinDev Plus.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="../css/index.css">
+  <script src="../js/auth.js"></script>
+  
+  <style>
+    .planos-hero {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 80px 24px 40px;
+      gap: 16px;
+    }
+
+    .planos-hero .badge-breve {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: linear-gradient(135deg, #6366f1, #8b5cf6);
+      color: #fff;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 6px 16px;
+      border-radius: 999px;
+    }
+
+    .planos-hero h1 {
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-weight: 800;
+      color: var(--text, #1e293b);
+      line-height: 1.15;
+      max-width: 640px;
+    }
+
+    .planos-hero h1 span {
+      background: linear-gradient(135deg, #6366f1, #a855f7);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .planos-hero p {
+      font-size: 1rem;
+      color: #64748b;
+      max-width: 480px;
+      line-height: 1.7;
+    }
+
+    .planos-cards {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 24px;
+      padding: 0 24px 60px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .plano-card {
+      background: #fff;
+      border: 2px solid #e2e8f0;
+      border-radius: 20px;
+      padding: 32px 28px;
+      width: 260px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      position: relative;
+      opacity: 0.7;
+      filter: grayscale(0.2);
+    }
+
+    .plano-card.destaque {
+      border-color: #6366f1;
+      opacity: 1;
+      filter: none;
+      box-shadow: 0 8px 32px rgba(99, 102, 241, 0.18);
+    }
+
+    .plano-card .tag-popular {
+      position: absolute;
+      top: -14px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: linear-gradient(135deg, #6366f1, #a855f7);
+      color: #fff;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 4px 14px;
+      border-radius: 999px;
+      white-space: nowrap;
+    }
+
+    .plano-card h3 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #1e293b;
+    }
+
+    .plano-card .preco {
+      font-size: 2rem;
+      font-weight: 800;
+      color: #6366f1;
+      line-height: 1;
+    }
+
+    .plano-card .preco small {
+      font-size: 0.9rem;
+      font-weight: 400;
+      color: #94a3b8;
+    }
+
+    .plano-card ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .plano-card ul li {
+      font-size: 0.85rem;
+      color: #475569;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .plano-card ul li i {
+      color: #6366f1;
+      width: 16px;
+    }
+
+    .btn-plano {
+      margin-top: auto;
+      padding: 12px;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      cursor: not-allowed;
+      border: none;
+      background: #e2e8f0;
+      color: #94a3b8;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .plano-card.destaque .btn-plano {
+      background: linear-gradient(135deg, #6366f1, #8b5cf6);
+      color: #fff;
+    }
+
+    .aviso-breve {
+      text-align: center;
+      padding: 0 24px 80px;
+    }
+
+    .aviso-breve .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #fef9c3;
+      color: #92400e;
+      border: 1px solid #fde68a;
+      border-radius: 12px;
+      padding: 12px 24px;
+      font-size: 0.85rem;
+      font-weight: 500;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="left">
+      <div class="logo">
+        <a href="../index.html"><h2>Cod<span>in</span></h2></a>
+        <span class="free">Free</span>
+      </div>
+
+      <ul class="nav-links">
+        <a href="cursos.html"><li><span class="material-symbols-outlined" style="font-size: 20px;">book_ribbon</span> Cursos</li></a>
+        <a href="missoes.html"><li><span class="material-symbols-outlined" style="font-size: 20px;">adjust</span> Missões</li></a>
+        <a href="loja.html"><li><span class="material-symbols-outlined" style="font-size: 20px;">shopping_bag</span> Loja do Codin</li></a>
+        <a href="ranking.html"><li><span class="material-symbols-outlined" style="font-size: 20px;">trophy</span> Ranking</li></a>
+        <a href="perfil.html"><li><span class="material-symbols-outlined" style="font-size: 20px;">person</span> Perfil</li></a>
+      </ul>
+    </div>
+
+    <div class="right-side">
+      <div class="menu-separado">
+        <!-- Nível -->
+        <div class="level" id="badge-nivel-container">
+            <i class="fa-regular fa-star"></i> 
+            <span id="nivel-usuario">Nível 1</span>
+
+            <div class="progress">
+                <div class="bar" id="barra-xp-navbar" style="width: 0%"></div>
+            </div>
+        </div>
+
+        <!-- MONEEEY -->
+        <div class="xp-pill">
+          <img src="../codin/procyons.png" alt="Procyons" style="width: 18px; vertical-align: middle; margin-right: 5px;">
+          <span id="saldo-navbar">0</span>
+        </div>
+
+        <!-- Corações -->
+        <div class="hearts-pill" id="vidas-navbar">
+          <i class="fa-solid fa-heart"></i>
+          <i class="fa-solid fa-heart"></i>
+          <i class="fa-solid fa-heart"></i>
+          <i class="fa-solid fa-heart"></i>
+          <i class="fa-solid fa-heart"></i>
+        </div>
+
+        <div class="fire-pill">
+          <i class="fa-solid fa-fire"></i>
+          <span id="streak-navbar">0</span>
+        </div>
+
+        <!-- Upgrade -->
+        <div class="upgrade" onclick="window.location.href='./paginas/planos.html'" style="cursor:pointer;">
+          <span class="material-symbols-outlined" style="font-size: 20px;">crown</span>
+          <p>Upgrade</p>
+        </div>
+      </div>
+        <!-- Menu -->
+        <a href="./paginas/configuracoes.html" aria-label="Abrir configurações"><div class="menu" role="button" aria-label="Menu">
+          <div class="line1"></div>
+          <div class="line2"></div>
+          <div class="line3"></div>
+        </div></a>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <div class="planos-hero">
+    <span class="badge-breve"><i class="fa-solid fa-clock"></i> Em Breve</span>
+    <h1>Desbloqueie todo o<br><span>potencial do CodinDev</span></h1>
+    <p>Os planos pagos estão em desenvolvimento. Em breve você poderá acessar cursos de Python, React, Java e muito mais!</p>
+  </div>
+
+  <!-- Cards de planos (visuais — desativados) -->
+  <div class="planos-cards">
+
+    <div class="plano-card">
+      <h3><i class="fa-solid fa-seedling" style="color:#6366f1"></i> Mensal</h3>
+      <div class="preco">R$29,90 <small>/ mês</small></div>
+      <ul>
+        <li><i class="fa-solid fa-check"></i> Todos os cursos premium</li>
+        <li><i class="fa-solid fa-check"></i> Vidas infinitas</li>
+        <li><i class="fa-solid fa-check"></i> Itens exclusivos na loja</li>
+        <li><i class="fa-solid fa-check"></i> Sem anúncios</li>
+      </ul>
+      <button class="btn-plano" disabled>
+        <i class="fa-solid fa-lock"></i> Em Breve
+      </button>
+    </div>
+
+    <div class="plano-card destaque">
+      <span class="tag-popular">Mais Popular</span>
+      <h3><i class="fa-solid fa-bolt" style="color:#6366f1"></i> Semestral</h3>
+      <div class="preco">R$19,90 <small>/ mês</small></div>
+      <ul>
+        <li><i class="fa-solid fa-check"></i> Tudo do plano Mensal</li>
+        <li><i class="fa-solid fa-check"></i> 2 meses grátis</li>
+        <li><i class="fa-solid fa-check"></i> Suporte prioritário</li>
+        <li><i class="fa-solid fa-check"></i> Badge exclusivo no perfil</li>
+      </ul>
+      <button class="btn-plano" disabled>
+        <i class="fa-solid fa-lock"></i> Em Breve
+      </button>
+    </div>
+
+    <div class="plano-card">
+      <h3><i class="fa-solid fa-crown" style="color:#6366f1"></i> Anual</h3>
+      <div class="preco">R$14,90 <small>/ mês</small></div>
+      <ul>
+        <li><i class="fa-solid fa-check"></i> Tudo do plano Semestral</li>
+        <li><i class="fa-solid fa-check"></i> 4 meses grátis</li>
+        <li><i class="fa-solid fa-check"></i> Acesso antecipado a novidades</li>
+        <li><i class="fa-solid fa-check"></i> Aura exclusiva no ranking</li>
+      </ul>
+      <button class="btn-plano" disabled>
+        <i class="fa-solid fa-lock"></i> Em Breve
+      </button>
+    </div>
+
+  </div>
+
+  <!-- Aviso -->
+  <div class="aviso-breve">
+    <div class="pill">
+      <i class="fa-solid fa-triangle-exclamation"></i>
+      As compras ainda não estão disponíveis. Fique de olho nas novidades!
+    </div>
+  </div>
+
+  <script src="../script.js"></script>
+</body>
+</html>

@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Codin</title>
+  <script src="../js/auth.js"></script>
+  <link rel="stylesheet" href="../css/index.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+    <div class="left">
+      <div class="logo">
+        <a href="../index.html"><h2>Cod<span>in</span></h2></a>
+        <span class="free">Free</span>
+      </div>
+
+      <ul class="nav-links">
+        <a href="cursos.html"><li><span class="material-symbols-outlined" style="font-size: 20px;">book_ribbon</span> Cursos</li></a>
+        <a href="missoes.html"><li><span class="material-symbols-outlined" style="font-size: 20px;">adjust</span> Missões</li></a>
+        <a href="loja.html"><li><span class="material-symbols-outlined" style="font-size: 20px;">shopping_bag</span> Loja do Codin</li></a>
+        <a href="ranking.html"><li><span class="material-symbols-outlined" style="font-size: 20px;">trophy</span> Ranking</li></a>
+        <a href="perfil.html"><li><span class="material-symbols-outlined" style="font-size: 20px;">person</span> Perfil</li></a>
+      </ul>
+    </div>
+
+    <div class="right-side">
+      <div class="menu-separado">
+        <div class="level" id="badge-nivel-container">
+            <i class="fa-regular fa-star"></i> 
+            <span id="nivel-usuario">Nível 1</span>
+  
+            <div id="barra-xp-efeito" class="progress">
+                <div class="bar" id="barra-xp-navbar" style="width: 0%"></div>
+            </div>
+        </div>
+
+        <div class="xp-pill">
+          <img src="../codin/procyons.png" alt="Procyons" style="width: 18px; vertical-align: middle; margin-right: 5px;">
+          <span id="saldo-navbar">0</span>
+        </div>
+
+        <div class="hearts-pill" id="vidas-navbar">
+          <i class="fa-solid fa-heart"></i>
+          <i class="fa-solid fa-heart"></i>
+          <i class="fa-solid fa-heart"></i>
+          <i class="fa-solid fa-heart"></i>
+          <i class="fa-solid fa-heart"></i>
+        </div>
+
+        <div class="fire-pill">
+          <i class="fa-solid fa-fire"></i>
+          <span id="streak-navbar">0</span>
+        </div>
+
+        <div class="upgrade" onclick="window.location.href='planos.html'" style="cursor:pointer;">
+          <span class="material-symbols-outlined" style="font-size: 20px;">crown</span>
+          <p>Upgrade</p>
+        </div>
+      </div>
+        <a href="configuracoes.html"><div class="menu">
+          <div class="line1"></div>
+          <div class="line2"></div>
+          <div class="line3"></div>
+        </div></a>
+    </div>
+  </nav>
+  <section class="secao2">
+        <div class="topo2">
+            <h2 style="font-size: 35px;">Missões & Conquistas</h2>
+            <p> Complete missões para ganhar moedas e XP extra!</p>
+        </div>
+
+       <div class="vs2-sections">
+            
+            <div class="vs2-daily-missions">
+                <h2 class="vs2-section-title"><span class="material-symbols-outlined" style="font-size: 24px; color: #388e3c; margin-right: 8px;">adjust</span> Missões Diárias</h2>
+
+                <div class="vs2-card vs2-mission-card" id="card-diaria-1">
+                    <p class="vs2-mission-name">Complete 3 lições</p>
+                    <p class="vs2-mission-details">Faça pelo menos 3 lições hoje!</p>
+                    
+                    <div class="vs2-progress-container">
+                        <span class="vs2-progress-text" id="texto-diaria-1">0/3</span>
+                        <div class="vs2-progress-bar-bg">
+                            <div class="vs2-progress-bar" id="barra-diaria-1" style="width: 0%;"></div>
+                        </div>
+                        <span class="vs2-progress-percentage" id="perc-diaria-1">0%</span>
+                    </div>
+
+                    <div class="vs2-rewards">
+                        <span class="vs2-reward-coin"><img src="../codin/procyons.png" style="width: 14px; vertical-align: middle;"> 50</span>
+                        <span class="vs2-reward-xp"><i class="fa-solid fa-star"></i> 100 XP</span>
+                        <button id="btn-diaria-1" class="vs2-action-button vs2-primary-button" onclick="window.location.href='missoes_menu.html?modo=curso_logica'">Fazer lição</button>
+                    </div>
+                </div>
+
+                <div class="vs2-card vs2-mission-card" id="card-diaria-2">
+                    <p class="vs2-mission-name">Sequência de 7 dias</p>
+                    <p class="vs2-mission-details">Mantenha sua sequência de estudos</p>
+                    
+                    <div class="vs2-progress-container">
+                        <span class="vs2-progress-text" id="texto-diaria-2">0/7</span>
+                        <div class="vs2-progress-bar-bg">
+                            <div class="vs2-progress-bar" id="barra-diaria-2" style="width: 0%;"></div>
+                        </div>
+                        <span class="vs2-progress-percentage" id="perc-diaria-2">0%</span>
+                    </div>
+
+                    <div class="vs2-rewards" id="recompensa-diaria-2">
+                        <span class="vs2-reward-coin"><img src="../codin/procyons.png" style="width: 14px; vertical-align: middle;"> 100</span>
+                        <span class="vs2-reward-xp"><i class="fa-solid fa-star"></i> 200 XP</span>
+                        <button id="btn-diaria-2" class="vs2-action-button vs2-primary-button" onclick="window.location.href='missoes_menu.html?modo=curso_logica'">Continuar</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="vs2-weekly-missions">
+                <h2 class="vs2-section-title"><i class="fa-regular fa-calendar vs2-icon vs2-weekly-icon"></i> Missões Semanais</h2>
+
+                <div class="vs2-card vs2-mission-card" id="card-sem-1">
+                    <p class="vs2-mission-name">Ganhe 1000 XP</p>
+                    <p class="vs2-mission-details">Acumule 1000 pontos de experiência</p>
+                    
+                    <div class="vs2-progress-container">
+                        <span class="vs2-progress-text" id="texto-sem-1">0/1000</span>
+                        <div class="vs2-progress-bar-bg">
+                            <div class="vs2-progress-bar" id="barra-sem-1" style="width: 0%;"></div>
+                        </div>
+                        <span class="vs2-progress-percentage" id="perc-sem-1">0%</span>
+                    </div>
+
+                    <div class="vs2-rewards" id="recompensa-sem-1">
+                        <span class="vs2-reward-coin"><img src="../codin/procyons.png" style="width: 14px; vertical-align: middle;"> 200</span>
+                        <span class="vs2-reward-xp"><i class="fa-solid fa-star"></i> 300 XP</span>
+                        <button id="btn-sem-1" class="vs2-action-button vs2-primary-button" onclick="window.location.href='missoes_menu.html?modo=curso_logica'">Continuar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+  </section>
+  <section class="secao2">
+    <div class="cabecalho-conquistas">
+        <span class="material-symbols-outlined" style="font-size: 28px; margin-right: 8px; color: #388e3c;">trophy</span>
+        <h1>Conquistas</h1>
+    </div>
+
+    <div class="grade-conquistas">
+        <div class="cartao-conquista" id="card-conq-primeira">
+            <div class="icone-cartao">
+                <i class="fa-solid fa-crown" style="font-size: 35px;"></i>
+            </div>
+            <h2 class="titulo-cartao">Primeira Lição</h2>
+            <p class="descricao-cartao">Complete sua primeira missão</p>
+            <div class="pontos-cartao">
+                <img src="../codin/procyons.png" style="width: 16px; vertical-align: middle; margin-right: 5px;">
+                <span>25</span>
+            </div>
+            <button class="botao-status" id="btn-conq-primeira">25</button>
+        </div>
+
+        <div class="cartao-conquista" id="card-conq-python">
+            <div class="icone-cartao">
+                <i class="fa-brands fa-python" style="font-size: 38px;"></i>
+            </div>
+            <h2 class="titulo-cartao">Python Básico</h2>
+            <p class="descricao-cartao">Complete o curso de Python</p>
+            <div class="pontos-cartao">
+                <img src="../codin/procyons.png" style="width: 16px; vertical-align: middle; margin-right: 5px;">
+                <span>100</span>
+            </div>
+            <button class="botao-status" id="btn-conq-python">100</button>
+        </div>
+
+        <div class="cartao-conquista" id="card-conq-streak30">
+            <div class="icone-cartao">
+                <i class="fa-solid fa-fire" style="font-size: 35px;"></i>
+            </div>
+            <h2 class="titulo-cartao">Sequência de 30 dias</h2>
+            <p class="descricao-cartao">Estude por 30 dias consecutivos</p>
+            <div class="pontos-cartao">
+                <img src="../codin/procyons.png" style="width: 16px; vertical-align: middle; margin-right: 5px;">
+                <span>500</span>
+            </div>
+            <button class="botao-status" id="btn-conq-streak30">500</button>
+        </div>
+
+        <div class="cartao-conquista" id="card-conq-logica">
+            <div class="icone-cartao">
+                <span class="material-symbols-outlined" style="font-size: 45px;">network_intel_node</span>
+            </div>
+            <h2 class="titulo-cartao">Mestre da Lógica</h2>
+            <p class="descricao-cartao">Complete o curso de Lógica</p>
+            <div class="pontos-cartao">
+                <img src="../codin/procyons.png" style="width: 16px; vertical-align: middle; margin-right: 5px;">
+                <span>150</span>
+            </div>
+            <button class="botao-status" id="btn-conq-logica">150</button>
+        </div>
+
+    </div>
+</section>
+<script src="../script.js"></script>
+</body>
+</html>

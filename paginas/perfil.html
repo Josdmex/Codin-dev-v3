@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil do Jogador | Codin</title>
+    
+    <script src="../js/auth.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+    
+    <link rel="stylesheet" href="perfil.css">
+    <link rel="stylesheet" href="../css/index.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="left">
+          <div class="logo">
+            <a href="../index.html"><h2>Cod<span>in</span></h2></a>
+            <span class="free">Free</span>
+          </div>
+
+          <ul class="nav-links">
+            <a href="cursos.html"><li><span class="material-symbols-outlined" style="font-size: 20px;">book_ribbon</span> Cursos</li></a>
+            <a href="missoes.html"><li><span class="material-symbols-outlined" style="font-size: 20px;">adjust</span> Missões</li></a>
+            <a href="loja.html"><li><span class="material-symbols-outlined" style="font-size: 20px;">shopping_bag</span> Loja do Codin</li></a>
+            <a href="ranking.html"><li><span class="material-symbols-outlined" style="font-size: 20px;">trophy</span> Ranking</li></a>
+            <a href="perfil.html"><li><span class="material-symbols-outlined" style="font-size: 20px;">person</span> Perfil</li></a>
+          </ul>
+        </div>
+
+        <div class="right-side">
+          <div class="menu-separado">
+            <div class="level" id="badge-nivel-container">
+                <i class="fa-regular fa-star"></i> 
+                <span id="nivel-usuario">Nível 1</span>
+      
+                <div id="barra-xp-efeito" class="progress">
+                    <div class="bar" id="barra-xp-navbar" style="width: 0%"></div>
+                </div>
+            </div>
+
+            <div class="xp-pill">
+              <img src="../codin/procyons.png" alt="Procyons" style="width: 18px; vertical-align: middle; margin-right: 5px;">
+              <span id="saldo-navbar">0</span>
+            </div>
+
+            <div class="hearts-pill" id="vidas-navbar">
+              <i class="fa-solid fa-heart"></i>
+              <i class="fa-solid fa-heart"></i>
+              <i class="fa-solid fa-heart"></i>
+              <i class="fa-solid fa-heart"></i>
+              <i class="fa-solid fa-heart"></i>
+            </div>
+
+            <div class="fire-pill">
+                <i class="fa-solid fa-fire"></i>
+                <span id="streak-navbar">0</span>
+            </div>
+
+            <div class="upgrade" onclick="window.location.href='planos.html'" style="cursor:pointer;">
+              <span class="material-symbols-outlined" style="font-size: 20px;">crown</span>
+              <p>Upgrade</p>
+            </div>
+          </div>
+            <a href="configuracoes.html"><div class="menu">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div></a>
+        </div>
+    </nav>
+
+    <div class="profile-container-main">
+        
+        <div class="profile-card-hero">
+            
+            <div id="profile-preloader" class="profile-loader-overlay">
+                <div class="loader-content">
+                    <div class="spinner"></div>
+                    <p>Carregando Perfil...</p>
+                </div>
+            </div>
+            <div class="profile-mascot-area">
+                <div class="mascot-full-render" id="mascot-stage">
+                    <div class="aura-effect-back"></div>
+                    
+                    <img id="prof-layer-exoticos" src="" class="layer" style="display:none" alt="Item exótico equipado">
+                    <div id="prof-container-efeitos" class="layer" aria-hidden="true"></div>
+                    <img src="../codin/fotocodin.png" class="layer base" alt="Mascote Codin">
+                    <img id="prof-layer-corpo" src="" class="layer" style="display:none" alt="Item de corpo equipado">
+                    <img id="prof-layer-acessorios" src="" class="layer" style="display:none" alt="Acessório equipado">
+                    <img id="prof-layer-cabeca" src="" class="layer" style="display:none" alt="Item de cabeça equipado">
+                </div>
+
+                <div class="level-pill" id="prof-nivel-badge">
+                    <i class="fa-solid fa-star"></i> Nível 1
+                </div>
+
+                <div class="aura-controls" role="group" aria-label="Selecionar aura">
+                    <button class="aura-btn purple" onclick="setAura('purple')" title="Aura Roxa" aria-label="Aura Roxa"></button>
+                    <button class="aura-btn gold" onclick="setAura('gold')" title="Aura Dourada" aria-label="Aura Dourada"></button>
+                    <button class="aura-btn red" onclick="setAura('red')" title="Aura Vermelha" aria-label="Aura Vermelha"></button>
+                    <button class="aura-btn none" onclick="setAura('none')" title="Remover Aura" aria-label="Remover Aura"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
+                </div>
+            </div>
+
+            <div class="profile-data-area">
+                
+                <header class="user-header-flex">
+                    <div class="profile-avatar-wrapper" onclick="document.getElementById('upload-foto').click()" role="button" tabindex="0" aria-label="Alterar foto de perfil" onkeydown="if(event.key==='Enter'||event.key===' ')document.getElementById('upload-foto').click()">
+                        <img id="user-avatar-img" src="https://api.dicebear.com/7.x/avataaars/svg?seed=Felix" alt="Foto de perfil do usuário">
+                        <div class="avatar-overlay" aria-hidden="true">
+                            <i class="fa-solid fa-camera"></i>
+                        </div>
+                        <input type="file" id="upload-foto" accept="image/*" style="display: none;" aria-label="Selecionar foto de perfil">
+                    </div>
+
+                    <div class="user-text-info">
+                        <h1 id="profile-name">Dev Iniciante</h1>
+                        
+                        <div class="custom-select-wrapper" id="custom-title-select">
+                            <div class="custom-select-trigger">
+                                <div class="selected-content">
+                                    <i class="fa-solid fa-seedling" style="color: #22c55e;"></i>
+                                    <span id="selected-title-text">Carregando...</span>
+                                </div>
+                                <i class="fa-solid fa-chevron-down arrow"></i>
+                            </div>
+                            
+                            <div class="custom-options-container" id="title-options-list">
+                                </div>
+                        </div>
+                    </div>
+                </header>
+
+                <div class="stats-grid-clean">
+                    <div class="stat-box">
+                        <div class="icon-box purple"><i class="fa-solid fa-bolt"></i></div>
+                        <div class="stat-info">
+                            <span class="label">XP Total</span>
+                            <strong class="value" id="prof-xp">0</strong>
+                        </div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="icon-box green" style="display:flex; justify-content:center; align-items:center;">
+                            <img src="../codin/procyons.png" style="width: 24px; filter: brightness(0) invert(1);">
+                        </div>
+                        <div class="stat-info">
+                            <span class="label">Procyons</span>
+                            <strong class="value" id="prof-saldo">0</strong>
+                        </div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="icon-box red"><i class="fa-solid fa-fire"></i></div>
+                        <div class="stat-info">
+                            <span class="label">Sequência</span>
+                            <strong class="value" id="prof-streak">0 Dias</strong>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="divider"></div>
+
+                <div class="actions-area">
+                    <button class="btn-action primary" onclick="window.location.href='../index.html'">
+                        <i class="ph-bold ph-house"></i> Voltar ao Início
+                    </button>
+                    <button class="btn-action secondary" onclick="abrirModalNome()">
+                        <i class="ph-bold ph-pencil-simple"></i> Editar Nome
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div id="profile-modal-name" class="profile-modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-nome-titulo">
+        <div class="profile-modal-card">
+            <div class="profile-modal-header">
+                <h2 id="modal-nome-titulo">Alterar Identidade</h2>
+                <button class="profile-close-btn" onclick="fecharModalNome()" aria-label="Fechar modal">&times;</button>
+            </div>
+            <div class="profile-modal-body">
+                <p>Como você deseja ser chamado?</p>
+                <input type="text" id="input-novo-nome" placeholder="Digite seu novo nome..." maxlength="20">
+                
+                <div class="profile-price-tag">
+                    <span>Custo:</span>
+                    <strong style="color: #22c55e;">
+                        <img src="../codin/procyons.png" alt="Procyons" style="width: 16px; vertical-align: middle; margin-bottom: 2px; margin-right: 2px;"> 1.000
+                    </strong>
+                </div>
+            </div>
+            <div class="profile-modal-footer">
+                <button class="profile-btn-cancel" onclick="fecharModalNome()">Cancelar</button>
+                <button class="profile-btn-confirm" onclick="confirmarTrocaNome()">Confirmar</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="profile-modal-error" class="profile-modal-overlay" role="alertdialog" aria-modal="true" aria-labelledby="modal-erro-titulo">
+        <div class="profile-modal-card error-mode">
+            <div class="profile-icon-error"><i class="fa-solid fa-circle-exclamation" aria-hidden="true"></i></div>
+            <h3 id="modal-erro-titulo">Saldo Insuficiente!</h3>
+            <p>Você precisa de <strong>1.000 Procyons</strong> para trocar de nome.</p>
+            <button class="profile-btn-error-close" onclick="fecharModalErro()">Entendi</button>
+        </div>
+    </div>
+
+    <script src="perfil.js"></script>
+    <script src="../script.js"></script>
+</body>
+</html>

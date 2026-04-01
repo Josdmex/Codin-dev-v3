@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configurações | Codin</title>
+    
+    <script src="../js/auth.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+    
+    <link rel="stylesheet" href="../css/index.css"> <link rel="stylesheet" href="config.css"> </head>
+<body>
+
+    <nav class="navbar">
+    <div class="left">
+      <div class="logo">
+        <a href="../index.html"><h2>Cod<span>in</span></h2></a>
+        <span class="free">Free</span>
+      </div>
+
+      <ul class="nav-links">
+        <a href="cursos.html"><li><span class="material-symbols-outlined" style="font-size: 20px;">book_ribbon</span> Cursos</li></a>
+        <a href="missoes.html"><li><span class="material-symbols-outlined" style="font-size: 20px;">adjust</span> Missões</li></a>
+        <a href="loja.html"><li><span class="material-symbols-outlined" style="font-size: 20px;">shopping_bag</span> Loja do Codin</li></a>
+        <a href="ranking.html"><li><span class="material-symbols-outlined" style="font-size: 20px;">trophy</span> Ranking</li></a>
+        <a href="perfil.html"><li><span class="material-symbols-outlined" style="font-size: 20px;">person</span> Perfil</li></a>
+      </ul>
+    </div>
+
+    <div class="right-side">
+      <div class="menu-separado">
+        <!-- Nível -->
+        <div class="level" id="badge-nivel-container">
+            <i class="fa-regular fa-star"></i> 
+            <span id="nivel-usuario">Nível 1</span>
+  
+            <div id="barra-xp-efeito" class="progress">
+                <div class="bar" id="barra-xp-navbar" style="width: 0%"></div>
+            </div>
+        </div>
+
+        <!-- MONEEEY -->
+        <div class="xp-pill">
+          <img src="../codin/procyons.png" alt="Procyons" style="width: 18px; vertical-align: middle; margin-right: 5px;">
+          <span id="saldo-navbar">0</span>
+        </div>
+
+        <!-- Corações -->
+        <div class="hearts-pill" id="vidas-navbar">
+          <i class="fa-solid fa-heart"></i>
+          <i class="fa-solid fa-heart"></i>
+          <i class="fa-solid fa-heart"></i>
+          <i class="fa-solid fa-heart"></i>
+          <i class="fa-solid fa-heart"></i>
+        </div>
+
+        <!-- Fogo -->
+        <div class="fire-pill">
+          <i class="fa-solid fa-fire"></i>
+          <span id="streak-navbar">0</span>
+        </div>
+
+        <!-- Upgrade -->
+        <div class="upgrade" onclick="window.location.href='planos.html'" style="cursor:pointer;">
+          <span class="material-symbols-outlined" style="font-size: 20px;">crown</span>
+          <p>Upgrade</p>
+        </div>
+      </div>
+        <!-- Menu -->
+        <a href="configuracoes.html"><div class="menu">
+          <div class="line1"></div>
+          <div class="line2"></div>
+          <div class="line3"></div>
+        </div></a>
+    </div>
+    </nav>
+
+    <div class="settings-container">
+        
+        <header class="settings-header">
+            <h1><i class="fa-solid fa-gear"></i> Configurações</h1>
+            <p>Personalize sua experiência no Codin</p>
+        </header>
+
+        <div class="settings-card">
+            <h2>Preferências de Som</h2>
+
+            <div style="display:flex;align-items:center;gap:10px;padding:12px 16px;background:#fef9c3;border:1px solid #fde68a;border-radius:12px;margin-bottom:12px;">
+                <i class="fa-solid fa-clock" style="color:#92400e;font-size:1.1rem;"></i>
+                <span style="font-size:0.85rem;color:#92400e;font-weight:500;">Em Breve — o sistema de áudio ainda está sendo desenvolvido.</span>
+            </div>
+
+            <div class="setting-item" style="opacity:0.45;pointer-events:none;">
+                <div class="setting-info">
+                    <div class="setting-label"><i class="fa-solid fa-volume-high"></i> Efeitos sonoros</div>
+                    <div class="setting-desc">Sons de acerto, erro e conquistas</div>
+                </div>
+                <label class="toggle-switch">
+                    <input type="checkbox" id="toggle-sfx" disabled>
+                    <span class="slider"></span>
+                </label>
+            </div>
+
+            <div class="setting-item" style="opacity:0.45;pointer-events:none;">
+                <div class="setting-info">
+                    <div class="setting-label"><i class="fa-solid fa-music"></i> Música de fundo</div>
+                    <div class="setting-desc">Música ambiente durante as lições</div>
+                </div>
+                <label class="toggle-switch">
+                    <input type="checkbox" id="toggle-music" disabled>
+                    <span class="slider"></span>
+                </label>
+            </div>
+        </div>
+
+        <div class="settings-card">
+            <h2>Notificações</h2>
+            
+            <div class="setting-item">
+                <div class="setting-info">
+                    <div class="setting-label">Lembrete diário</div>
+                    <div class="setting-desc">Receber notificação para estudar</div>
+                </div>
+                <label class="toggle-switch">
+                    <input type="checkbox" id="toggle-daily" checked>
+                    <span class="slider"></span>
+                </label>
+            </div>
+
+            <div class="setting-item">
+                <div class="setting-info">
+                    <div class="setting-label">Conquistas</div>
+                    <div class="setting-desc">Notificações de novas conquistas</div>
+                </div>
+                <label class="toggle-switch">
+                    <input type="checkbox" id="toggle-achievements" checked>
+                    <span class="slider"></span>
+                </label>
+            </div>
+
+            <div class="setting-item">
+                <div class="setting-info">
+                    <div class="setting-label">Novos cursos</div>
+                    <div class="setting-desc">Avisos sobre novos conteúdos</div>
+                </div>
+                <label class="toggle-switch">
+                    <input type="checkbox" id="toggle-new-courses">
+                    <span class="slider"></span>
+                </label>
+            </div>
+        </div>
+
+        <div class="settings-card">
+            <h2>Conta</h2>
+            
+            <div class="setting-item">
+                <div class="setting-info">
+                    <div class="setting-label">Sair da conta</div>
+                    <div class="setting-desc">Fazer logout do aplicativo</div>
+                </div>
+                <button class="btn-logout" onclick="fazerLogout()">
+                    <i class="fa-solid fa-right-from-bracket"></i> Sair
+                </button>
+            </div>
+
+            <div class="setting-item danger-zone">
+                <div class="setting-info">
+                    <div class="setting-label text-danger">Excluir progresso</div>
+                    <div class="setting-desc">Apagar todo o progresso atual</div>
+                </div>
+                <button class="btn-delete" onclick="excluirProgresso()">
+                    <i class="fa-solid fa-trash"></i> Excluir
+                </button>
+            </div>
+        </div>
+
+        <div class="settings-card">
+            <h2>Sobre o App</h2>
+            
+            <div class="setting-item">
+                <div class="setting-info">
+                    <div class="setting-label">Versão</div>
+                </div>
+                <div class="setting-value badge">1.0.0</div>
+            </div>
+
+            <div class="setting-item" style="border-bottom: none;">
+                <div class="setting-info">
+                    <div class="setting-label">Última atualização</div>
+                </div>
+                <div class="setting-value date">24 de Janeiro, 2026</div>
+            </div>
+        </div>
+
+    </div>
+    <div id="modal-logout" class="modal-overlay">
+        <div class="modal-card">
+            <div class="modal-header">
+                <i class="fa-solid fa-right-from-bracket icon-logout"></i>
+                <h3>Sair da Conta?</h3>
+            </div>
+            <div class="modal-body">
+                <p>Você precisará fazer login novamente para acessar seus cursos.</p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-cancel" onclick="fecharModal('modal-logout')">Cancelar</button>
+                <button class="btn-confirm-logout" onclick="confirmarLogoutReal()">Sair</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-delete-1" class="modal-overlay">
+        <div class="modal-card">
+            <div class="modal-header">
+                <i class="fa-solid fa-triangle-exclamation icon-warning"></i>
+                <h3>Tem certeza?</h3>
+            </div>
+            <div class="modal-body">
+                <p>Isso apagará <strong>todo seu progresso</strong>, XP, moedas e itens comprados.</p>
+                <p class="text-danger">Essa ação não pode ser desfeita.</p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-cancel" onclick="fecharModal('modal-delete-1')">Cancelar</button>
+                <button class="btn-danger" onclick="abrirPasso2Exclusao()">Continuar</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-delete-2" class="modal-overlay">
+        <div class="modal-card danger-mode">
+            <div class="modal-header">
+                <i class="fa-solid fa-skull icon-danger"></i>
+                <h3>Última Chance!</h3>
+            </div>
+            <div class="modal-body">
+                <p>Você está prestes a resetar sua conta para o zero.</p>
+                <p><strong>Deseja realmente apagar tudo?</strong></p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-cancel" onclick="fecharModal('modal-delete-2')">NÃO, VOLTAR!</button>
+                <button class="btn-danger-final" onclick="executarExclusao()">SIM, APAGAR TUDO</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="config.js"></script>
+    <script src="../script.js"></script>
+</body>
+</html>

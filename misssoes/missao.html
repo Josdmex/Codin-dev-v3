@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Missão: Variáveis</title>
+    <script src="../js/auth.js"></script>
+    <link rel="stylesheet" href="missao.css">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <header class="header-missao">
+        <div class="header-top">
+            <a href="../index.html" class="btn-voltar"><i class="fa-solid fa-arrow-left"></i> Voltar</a>
+            <div class="titulo-missao">
+                <i class="fa-solid fa-bullseye"></i> Missão: Variáveis e Tipos
+            </div>
+            <div class="vidas-container" id="container-vidas">
+                <i class="fa-solid fa-heart"></i>
+                <i class="fa-solid fa-heart"></i>
+                <i class="fa-solid fa-heart"></i>
+                <i class="fa-solid fa-heart"></i>
+                <i class="fa-solid fa-heart"></i>
+            </div>
+        </div>
+        
+        <div class="progresso-container">
+            <span class="texto-progresso">Progresso</span>
+            <div class="barra-fundo">
+                <div class="barra-cheia" id="barra-progresso" style="width: 0%;"></div>
+            </div>
+            <span id="contador-passos">1/7</span>
+        </div>
+    </header>
+
+    <main class="area-jogo">
+        
+        <div class="card-pergunta">
+            <div id="conteudo-dinamico"></div>
+            
+            <div class="footer-pergunta">
+                <div id="mensagem-feedback" class="feedback"></div>
+                <button id="btn-verificar" onclick="verificarResposta()">Verificar</button>
+                <button id="btn-continuar" onclick="proximaPergunta()" style="display: none;">Continuar</button>
+            </div>
+        </div>
+
+        <div class="coluna-lateral">
+            <div class="card-mascote-dica">
+                <img src="../codin/1428.png" alt="Codin" style="width: 100px; opacity: 0.8; transform: scale(2);">
+            </div>
+
+            <div class="card-recompensa">
+                <h3>Recompensa final:</h3>
+                <div class="item-recompensa">
+                    <i class="fa-regular fa-star"></i> 50 XP
+                </div>
+                <div class="item-recompensa">
+                    <img src="../codin/procyons.png" alt="Procyons" style="width: 18px; vertical-align: middle; margin-right: 5px;"> 30 Procyons
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <div id="modal-fim" class="modal-overlay" style="display: none;">
+        <div class="modal-card">
+            <h2>Missão Cumprida! 🎉</h2>
+            <p>Você aprendeu sobre Variáveis e Tipos.</p>
+            <div class="premios-fim">
+                <span>+50 XP</span>
+                <span><img src="../codin/procyons.png" alt="Procyons" style="width: 16px; vertical-align: middle; margin-right: 5px;"> +30 Procyons</span>
+            </div>
+            <button onclick="window.location.href='../index.html'" class="btn-confirmar">Voltar ao Menu</button>
+        </div>
+    </div>
+    
+    <div id="modal-revisao" class="modal-overlay" style="display: none;">
+    <div class="card-revisao scale-up">
+        <div class="mascote-container">
+            <img id="img-revisao" src="" alt="Mascote Codin" class="mascote-animado" loading="lazy">
+        </div>
+        
+        <h2 style="color: #0b2352; margin-bottom: 10px;">Opa, vamos revisar!</h2>
+        <p id="frase-revisao" style="font-size: 1.1em; color: #555; margin-bottom: 25px;">
+            </p>
+
+        <button class="btn-proximo" onclick="fecharModalRevisao()">
+            Bora consertar! <i class="fas fa-hammer"></i>
+        </button>
+    </div>
+    </div>
+    
+    <div id="modal-levelup" class="modal-overlay" style="display: none;">
+    <div class="card-levelup scale-up">
+        <h1 class="titulo-levelup">LEVEL UP!</h1>
+        
+        <div class="mascote-container">
+            <img id="img-evolucao" src="" alt="Codin Evoluído" class="mascote-animado" loading="lazy">
+        </div>
+        
+        <div class="nivel-badge">
+            <span style="font-size: 0.5em; display:block; color:#666;">Você alcançou o Nível</span>
+            <span id="numero-nivel-novo">0</span>
+        </div>
+
+        <button class="btn-proximo" onclick="fecharModalLevelUp()">
+            Incrível! <i class="fas fa-star"></i>
+        </button>
+    </div>
+    </div>
+
+    <script src="missao.js"></script>
+</body>
+</html>

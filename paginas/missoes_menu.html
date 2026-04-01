@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Missões - Codin</title>
+  
+  <script src="../js/auth.js"></script>
+  <link rel="stylesheet" href="../css/index.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+  
+  <style>
+    /* Estilos específicos para esta página de lista */
+    .conteudo-principal {
+        margin-top: 20px;
+        padding: 20px;
+        min-height: 80vh; 
+    }
+    
+    .header-section h3 {
+        color: #333;
+        margin-bottom: 25px;
+        font-size: 1.5rem;
+        border-bottom: 2px solid #eee;
+        padding-bottom: 10px;
+    }
+
+    .lista-dashboard {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        max-width: 1200px; 
+        width: 95%;
+        margin: 0 auto; 
+    }
+
+    
+  </style>
+</head>
+<body>
+
+    <nav class="navbar">
+    <div class="left">
+      <div class="logo">
+        <a href="../index.html"><h2>Cod<span>in</span></h2></a>
+        <span class="free">Free</span>
+      </div>
+
+      <ul class="nav-links">
+        <a href="cursos.html"><li><span class="material-symbols-outlined" style="font-size: 20px;">book_ribbon</span> Cursos</li></a>
+        <a href="missoes.html"><li><span class="material-symbols-outlined" style="font-size: 20px;">adjust</span> Missões</li></a>
+        <a href="loja.html"><li><span class="material-symbols-outlined" style="font-size: 20px;">shopping_bag</span> Loja do Codin</li></a>
+        <a href="ranking.html"><li><span class="material-symbols-outlined" style="font-size: 20px;">trophy</span> Ranking</li></a>
+        <a href="perfil.html"><li><span class="material-symbols-outlined" style="font-size: 20px;">person</span> Perfil</li></a>
+      </ul>
+    </div>
+
+    <div class="right-side">
+      <div class="menu-separado">
+        <!-- Nível -->
+        <div class="level" id="badge-nivel-container">
+            <i class="fa-regular fa-star"></i> 
+            <span id="nivel-usuario">Nível 1</span>
+  
+            <div class="progress">
+                <div class="bar" id="barra-xp-navbar" style="width: 0%"></div>
+            </div>
+        </div>
+
+        <!-- XP -->
+        <div class="xp-pill">
+          <img src="../codin/procyons.png" alt="Procyons" style="width: 18px; vertical-align: middle; margin-right: 5px;">
+          <span id="saldo-navbar">0</span>
+        </div>
+
+        <!-- Corações -->
+        <div class="hearts-pill" id="vidas-navbar">
+          <i class="fa-solid fa-heart"></i>
+          <i class="fa-solid fa-heart"></i>
+          <i class="fa-solid fa-heart"></i>
+          <i class="fa-solid fa-heart"></i>
+          <i class="fa-solid fa-heart"></i>
+        </div>
+
+        <!-- Fogo -->
+        <div class="fire-pill">
+          <i class="fa-solid fa-fire"></i>
+          <span id="streak-navbar">0</span>
+        </div>
+
+        <!-- Upgrade -->
+        <div class="upgrade" onclick="window.location.href='planos.html'" style="cursor:pointer;">
+          <span class="material-symbols-outlined" style="font-size: 20px;">crown</span>
+          <p>Upgrade</p>
+        </div>
+      </div>
+        <!-- Menu -->
+        <a href="configuracoes.html"><div class="menu">
+          <div class="line1"></div>
+          <div class="line2"></div>
+          <div class="line3"></div>
+        </div></a>
+    </div>
+  </nav>
+
+    <div class="container">
+        <main class="conteudo-principal">
+            
+            <div class="header-section">
+                <h3><i class="fas fa-spinner fa-spin"></i> Carregando missões...</h3>
+            </div>
+
+            <div id="lista-missoes-dashboard" class="lista-dashboard">
+                </div>
+
+        </main>
+    </div>
+
+    <script src="../script.js?v=8"></script> 
+    
+    <script src="../missoes_logica.js"></script>
+
+</body>
+</html>

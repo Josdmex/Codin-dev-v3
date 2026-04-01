@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Codin</title>
+    <script src="../js/auth.js"></script>
+    <link rel="stylesheet" href="../css/index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+</head>
+<body>
+    <div id="preloader">
+      <div class="spinner"></div>
+      <p>Carregando a Loja do Codin...</p>
+    </div>
+    <nav class="navbar">
+    <div class="left">
+      <div class="logo">
+        <a href="../index.html"><h2>Cod<span>in</span></h2></a>
+        <span class="free">Free</span>
+      </div>
+
+      <ul class="nav-links">
+        <a href="cursos.html"><li><span class="material-symbols-outlined" style="font-size: 20px;">book_ribbon</span> Cursos</li></a>
+        <a href="missoes.html"><li><span class="material-symbols-outlined" style="font-size: 20px;">adjust</span> Missões</li></a>
+        <a href="loja.html"><li><span class="material-symbols-outlined" style="font-size: 20px;">shopping_bag</span> Loja do Codin</li></a>
+        <a href="ranking.html"><li><span class="material-symbols-outlined" style="font-size: 20px;">trophy</span> Ranking</li></a>
+        <a href="perfil.html"><li><span class="material-symbols-outlined" style="font-size: 20px;">person</span> Perfil</li></a>
+      </ul>
+    </div>
+
+    <div class="right-side">
+      <div class="menu-separado">
+        <div class="level" id="badge-nivel-container">
+            <i class="fa-regular fa-star"></i> 
+            <span id="nivel-usuario">Nível 1</span>
+  
+            <div id="barra-xp-efeito" class="progress">
+                <div class="bar" id="barra-xp-navbar" style="width: 0%"></div>
+            </div>
+        </div>
+
+        <div class="xp-pill">
+          <img src="../codin/procyons.png" alt="Procyons" style="width: 18px; vertical-align: middle; margin-right: 5px;">
+          <span id="saldo-navbar">0</span> 
+        </div>
+
+        <div class="hearts-pill" id="vidas-navbar">
+          <i class="fa-solid fa-heart"></i>
+          <i class="fa-solid fa-heart"></i>
+          <i class="fa-solid fa-heart"></i>
+          <i class="fa-solid fa-heart"></i>
+          <i class="fa-solid fa-heart"></i>
+        </div>
+
+        <div class="fire-pill">
+          <i class="fa-solid fa-fire"></i>
+          <span id="streak-navbar">0</span>
+        </div>
+
+        <div class="upgrade" onclick="window.location.href='planos.html'" style="cursor:pointer;">
+          <span class="material-symbols-outlined" style="font-size: 20px;">crown</span>
+          <p>Upgrade</p>
+        </div>
+      </div>
+        <a href="configuracoes.html" aria-label="Abrir configurações"><div class="menu" role="button" aria-label="Menu">
+          <div class="line1"></div>
+          <div class="line2"></div>
+          <div class="line3"></div>
+        </div></a>
+    </div>
+  </nav>
+  <section class="secao2">
+        <div class="topo2">
+            <h2 style="font-size: 35px;">Loja do Codin</h2>
+            <p> Vista seu mascote com roupas incríveis e mostre seu estilo!</p>
+        </div>
+    <div class="loja-codin">
+        <div class="coluna-codin">
+            <div class="codin-card">
+                <h2 style="z-index: 100;">Seu Codin</h2>
+                <div class="codin-imagem">
+                  <img id="layer-exoticos" src="" alt="Item exótico equipado" class="layer" style="display:none;">
+
+                  <div id="container-efeitos" class="layer" aria-hidden="true"></div>
+
+                  <img id="layer-base" src="../codin/fotocodin.png" alt="Mascote Codin" class="layer base">
+
+                  <img id="layer-corpo" src="" alt="Item de corpo equipado" class="layer" style="display:none;">
+
+                  <img id="layer-cabeca" src="" alt="Item de cabeça equipado" class="layer" style="display:none;">
+
+                  <img id="layer-shorts" src="" alt="Short equipado" class="layer" style="display:none;">
+
+                  <img id="layer-acessorios" src="" alt="Acessório equipado" class="layer" style="display:none;">
+
+                  <video id="animacao-mascote" class="layer" muted playsinline style="display: none; z-index: 99;">
+                    <source src="../codin/animacao.mp4" type="video/mp4">
+                  </video>
+                </div>
+                <div class="moedas-disponiveis" style="z-index: 100;">
+                    <p>Procyons disponíveis:</p>
+                    <p class="saldo-moedas" style="display: flex; align-items: center; justify-content: center;">
+                      <img src="../codin/procyons.png" alt="Procyons" style="width: 22px; margin-right: 8px;"> 
+                      <span id="saldo-loja">0</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="coluna-loja">
+            <div class="abas-loja">
+                <button class="aba-botao active" data-aba="cabeca">Cabeça</button>
+                <button class="aba-botao" data-aba="corpo">Corpo</button>
+                <button class="aba-botao" data-aba="shorts">Shorts</button>
+                <button class="aba-botao" data-aba="acessorios">Acessórios</button>
+                <button class="aba-botao" data-aba="exoticos">Exóticos</button>
+                <button class="aba-botao" data-aba="consumiveis">
+                  <span class="material-symbols-outlined">bolt</span> Boosters
+                </button>
+            </div>
+
+            <div class="conteudo-abas">
+                </div>
+        </div>
+    </div>
+  </section>
+  <script src="../script.js"></script>
+</body>
+</html>

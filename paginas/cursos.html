@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cursos | CodinDev</title>
+  <script src="../js/auth.js"></script>
+  <link rel="stylesheet" href="../css/index.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+    <div class="left">
+      <div class="logo">
+        <a href="../index.html"><h2>Cod<span>in</span></h2></a>
+        <span class="free">Free</span>
+      </div>
+
+      <ul class="nav-links">
+        <a href="cursos.html"><li><span class="material-symbols-outlined" style="font-size: 20px;">book_ribbon</span> Cursos</li></a>
+        <a href="missoes.html"><li><span class="material-symbols-outlined" style="font-size: 20px;">adjust</span> Missões</li></a>
+        <a href="loja.html"><li><span class="material-symbols-outlined" style="font-size: 20px;">shopping_bag</span> Loja do Codin</li></a>
+        <a href="ranking.html"><li><span class="material-symbols-outlined" style="font-size: 20px;">trophy</span> Ranking</li></a>
+        <a href="perfil.html"><li><span class="material-symbols-outlined" style="font-size: 20px;">person</span> Perfil</li></a>
+      </ul>
+    </div>
+
+    <div class="right-side">
+      <div class="menu-separado">
+        <div class="level" id="badge-nivel-container">
+            <i class="fa-regular fa-star"></i> 
+            <span id="nivel-usuario">Nível 1</span>
+  
+            <div id="barra-xp-efeito" class="progress">
+                <div class="bar" id="barra-xp-navbar" style="width: 0%"></div>
+            </div>
+        </div>
+
+        <div class="xp-pill">
+          <img src="../codin/procyons.png" alt="Procyons" style="width: 18px; vertical-align: middle; margin-right: 5px;">
+          <span id="saldo-navbar">0</span>
+        </div>
+
+        <div class="hearts-pill" id="vidas-navbar">
+          <i class="fa-solid fa-heart"></i>
+          <i class="fa-solid fa-heart"></i>
+          <i class="fa-solid fa-heart"></i>
+          <i class="fa-solid fa-heart"></i>
+          <i class="fa-solid fa-heart"></i>
+        </div>
+
+        <div class="fire-pill">
+          <i class="fa-solid fa-fire"></i>
+          <span id="streak-navbar">0</span>
+        </div>
+
+        <div class="upgrade" onclick="window.location.href='planos.html'" style="cursor:pointer;">
+          <span class="material-symbols-outlined" style="font-size: 20px;">crown</span>
+          <p>Upgrade</p>
+        </div>
+      </div>
+        <a href="configuracoes.html"><div class="menu">
+          <div class="line1"></div>
+          <div class="line2"></div>
+          <div class="line3"></div>
+        </div></a>
+    </div>
+  </nav>
+  <section class="secao2">
+        <div class="topo2">
+            <h2 style="font-size: 35px;">Cursos disponiveis</h2>
+            <p> Escolha sua trilha de aprendizado e comece a progamar!</p>
+        </div>
+        <div class="cards-cursos">
+            <div class="card1 card">
+                <h3>
+                    <span class="material-symbols-outlined" style="font-size: 40px;">network_intel_node</span> 
+                    Lógica de Programação 
+                    <a href="#" class="free">free</a>
+                </h3>
+                
+                <p id="contador-logica">0/42 lições</p>
+                
+                <div class="container-barra-progresso">
+                    <div id="barra-logica" class="barra-progresso" style="width: 0%;"></div>
+                    
+                    <span id="porcentagem-logica" class="texto-progresso">0%</span>
+                </div>
+                
+                <button id="btn-curso-logica" class="botao-continuar-aprendendo-2" onclick="window.location.href='missoes_menu.html?modo=curso_logica'">
+                    <i class="fas fa-play"></i> Continuar
+                </button>
+            </div>
+
+            <div class="card2 card">
+                <h3>
+                    <i class="fa-brands fa-html5" style="font-size: 40px;"></i> 
+                    HTML & CSS (Básico)
+                    <span class="badge-premio" title="Complete 100% para ganhar um prêmio!">🎁</span>
+                    <a href="#" class="free">free</a>
+                </h3>
+                
+                <p id="contador-html">0/28 lições</p>
+                
+                <div class="container-barra-progresso">
+                    <div id="barra-html" class="barra-progresso" style="width: 0%;"></div>
+                    <span id="porcentagem-html" class="texto-progresso">0%</span>
+                </div>
+
+                <div class="area-acao-card" style="margin-top: 15px;">
+                    
+                    <button id="btn-continuar-html" class="botao-continuar-aprendendo-2" onclick="window.location.href='missoes_menu.html?modo=curso_html_css'">
+                        <i class="fas fa-play"></i> Continuar
+                    </button>
+
+                    <button id="btn-apostila-html" class="btn-recompensa" onclick="baixarApostila()" style="display: none;">
+                        <i class="fas fa-file-pdf"></i> Baixar Apostila
+                    </button>
+                    
+                </div>
+            </div>
+
+            <div id="card-javascript" class="card2 card">
+                <h3><i class="fa-brands fa-square-js" style="font-size: 40px;"></i>
+                    Java Script (Básico)
+                    <span class="badge-premio" title="Complete 100% para ganhar um prêmio!">🎁</span>
+                    <a href="#" class="free">free</a>
+                </h3>
+
+                <p id="contador-js">0/40 lições</p>
+                <div class="container-barra-progresso">
+                    <div id="barra-js" class="barra-progresso" style="width: 0%;"></div>
+                    <span id="porcentagem-js" class="texto-progresso">0%</span>
+                </div>
+                <button id="btn-continuar-js" class="botao-continuar-aprendendo-2" onclick="window.location.href='missoes_menu.html?modo=curso_js'">
+                    <i class="fas fa-play"></i> Continuar
+                </button>
+
+                <button id="btn-apostila-js" class="btn-recompensa" onclick="baixarApostilaJS()" style="display: none;">
+                    <i class="fas fa-file-pdf"></i> Baixar Apostila
+                </button>
+            </div>
+            
+        </div>
+  </section>
+  <section class="secao2">
+    <div class="cards-cursos">
+        <div class="card2 card">
+            <h3>
+                <i class="fa-brands fa-css3-alt" style="font-size: 40px;"></i> 
+                CSS na Prática 
+                <a href="#" class="free">free</a>
+            </h3>
+            
+            <p id="contador-css-adv">0/26 lições</p>
+            
+            <div class="container-barra-progresso">
+                <div id="barra-css-adv" class="barra-progresso" style="width: 0%;"></div>
+                <span id="porcentagem-css-adv" class="texto-progresso">0%</span>
+            </div>
+
+            <button id="btn-curso-css-adv" class="botao-continuar-aprendendo-2" onclick="window.location.href='missoes_menu.html?modo=curso_css_adv'">
+                <i class="fas fa-play"></i> Continuar
+            </button>
+        </div>
+    
+        <div class="card2 card" style="opacity: 0.7;">
+                <h3><i class="fa-brands fa-square-js" style="font-size: 40px;"></i>Java Script na Prática <a href="#" class="free">free</a></h3>
+                <p>Em breve...</p>
+                <div class="container-barra-progresso">
+                    <div class="barra-progresso" style="width: 0%;"></div>
+                    <span class="texto-progresso">0%</span>
+                </div>
+                <button class="botao-continuar-aprendendo-2" style="background-color: #cbd5e1; color: #475569; cursor: not-allowed; border: none; font-weight: bold;" disabled>
+                    <i class="fas fa-tools"></i> Em desenvolvimento
+                </button>
+        </div>
+
+        <div class="card-fantasma">
+            
+        </div>
+    </div>
+
+
+  </section>
+  <section class="secao2">
+        <div class="cards-cursos">
+            <div class="card3 card">
+                <h3><i class="fa-brands fa-python" style="font-size: 40px;"></i> Python <a href="#" class="free"><span class="material-symbols-outlined" style="font-size: 20px;">crown</span>Plus</a></h3>
+                <p>0/35 lições <i class="fa-solid fa-lock"></i></p>
+                <div class="container-barra-progresso">
+                    <div class="barra-progresso" style="width: 0%;"></div>
+                    <span class="texto-progresso">0%</span>
+                </div>
+                <button class="botao-continuar-aprendendo-2" onclick="window.location.href='planos.html'">
+                    Ver Planos
+                </button>
+            </div>
+
+            <div class="card3 card">
+                <h3><i class="fa-brands fa-react" style="font-size: 40px;"></i> React <a href="#" class="free"><span class="material-symbols-outlined" style="font-size: 20px;">crown</span>Plus</a></h3>
+                <p>0/32 lições <i class="fa-solid fa-lock"></i></p>
+                <div class="container-barra-progresso">
+                    <div class="barra-progresso" style="width: 0%;"></div>
+                    <span class="texto-progresso">0%</span>
+                </div>
+                <button class="botao-continuar-aprendendo-2" onclick="window.location.href='planos.html'">
+                    Ver Planos
+                </button>
+            </div>
+
+            <div class="card3 card">
+                <h3><i class="fa-brands fa-java" style="font-size: 40px;"></i> Java <a href="#" class="free"><span class="material-symbols-outlined" style="font-size: 20px;">crown</span>Plus</a></h3>
+                <p>0/38 lições <i class="fa-solid fa-lock"></i></p>
+                <div class="container-barra-progresso">
+                    <div class="barra-progresso" style="width: 0%;"></div>
+                    <span class="texto-progresso">0%</span>
+                </div>
+                <button class="botao-continuar-aprendendo-2" onclick="window.location.href='planos.html'">
+                    Ver Planos
+                </button>
+            </div>
+            
+        </div>
+  </section>
+  <section class="caixa-footer">
+            <div class="cabecalho-footer">
+                    <h2>Desbloqueie todo o Potencial! 🚀 </h2>
+                    <p>Acesse todas as linguagens, vidas infinitas e muito mais por apenas R$29,90/Mês</p>
+            </div>
+                
+                <i class="fa-solid fa-star" style="font-size: 80px;"></i>
+                
+            <button class="botao-continuar-aprendendo" onclick="window.location.href='planos.html'">
+                Upgrade para Plus
+            </button>
+  </section>
+  <script src="../script.js"></script>
+</body>
+</html>
