@@ -1,0 +1,87 @@
+🏛️ Saga 3: O Arquiteto Grid (Continuação)
+Foco: Dominar o Grid Layout bidimensional e layout de áreas.
+
+Missão 23: Grid Areas (O Mapa) – Nomeando áreas (grid-area, grid-template-areas) para criar layouts visuais sem números complexos.
+
+Missão 24: Alinhamento Supremo – justify-items, align-items, justify-content no contexto do Grid.
+
+Missão 25: Grid Implícito – O que acontece quando o conteúdo vaza? (grid-auto-rows, grid-auto-columns).
+
+Missão 26: O Poder do Minmax – Criando células inteligentes (minmax()).
+
+Missão 27: Cards Responsivos (Auto-Fit/Fill) – O segredo dos cards que se adaptam sem media queries.
+
+Missão 28: Aninhamento (Grid Inception) – Grid dentro de Grid (subgrid conceitual).
+
+Missão 29: Sobreposição (Z-Index no Grid) – Colocando itens uns sobre os outros intencionalmente.
+
+Missão 30: BOSS - O Dashboard – Construir um painel administrativo completo (Sidebar, Header, Main, Widgets).
+
+📱 Saga 4: O Reino Responsivo
+Foco: Fazer o site funcionar em qualquer tela (Celular, Tablet, PC).
+
+Missão 31: O Oráculo (@media) – Introdução às Media Queries.
+
+Missão 32: Breakpoints (Pontos de Quebra) – Mobile First vs Desktop First.
+
+Missão 33: Unidades Relativas (O Elástico) – %, vw, vh (Viewport Units).
+
+Missão 34: Tipografia Fluida – rem vs em. Por que não usar px para fontes?
+
+Missão 35: Imagens Flexíveis – max-width: 100%, object-fit (cover/contain).
+
+Missão 36: Matemática Mágica – Funções calc(), clamp(), min() e max().
+
+Missão 37: Esconde-Esconde – display: none vs visibility: hidden em telas pequenas.
+
+Missão 38: O Menu Hambúrguer – Lógica de transformar menu horizontal em vertical.
+
+Missão 39: Impressão (@media print) – Estilizando como a página sai no papel.
+
+Missão 40: BOSS - Landing Page Moderna – Uma página que muda completamente do celular para o PC.
+
+✨ Saga 5: O Feiticeiro das Animações
+Foco: Dar vida, movimento e interação aos elementos.
+
+Missão 41: Transições Suaves – transition (hover suave).
+
+Missão 42: Aceleração (Timing Functions) – ease, linear, cubic-bezier.
+
+Missão 43: Transformações 2D (Mover & Escalar) – translate, scale.
+
+Missão 44: Transformações 2D (Girar & Distorcer) – rotate, skew.
+
+Missão 45: O Ponto de Origem – transform-origin (mudando o eixo do giro).
+
+Missão 46: Keyframes (O Roteiro) – Criando animações autônomas (@keyframes).
+
+Missão 47: Controle de Animação – animation-iteration-count, direction, fill-mode.
+
+Missão 48: Loaders e Spinners – Criando ícones de carregamento com CSS puro.
+
+Missão 49: Interações Avançadas – Combinando focus-within, hover e transformações.
+
+Missão 50: BOSS - A Apresentação Interativa – Um herói animado com elementos flutuantes.
+
+💎 Saga 6: O Polimento Final (Modern CSS)
+Foco: Funcionalidades avançadas, variáveis e estética profissional.
+
+Missão 51: Variáveis (Custom Properties) – O poder do --var.
+
+Missão 52: Temas (Light/Dark Mode) – Trocando o esquema de cores com variáveis.
+
+Missão 53: Filtros (Photoshop no CSS) – blur, grayscale, brightness.
+
+Missão 54: Elementos Fantasmas (Before/After) – Criando conteúdo visual sem HTML.
+
+Missão 55: Seletores de Elite – :nth-child avançado, :not(), :has() (o futuro).
+
+Missão 56: Sombras Realistas – box-shadow em camadas e drop-shadow.
+
+Missão 57: Degradês (Gradients) – linear-gradient, radial-gradient.
+
+Missão 58: Bordas Criativas – border-radius complexo, bordas com imagens.
+
+Missão 59: Rolagem Suave – scroll-behavior, estilizando a barra de rolagem.
+
+Missão 60: O GRANDE MESTRE (Projeto Final) – Construir uma interface completa (ex: clone da Netflix ou Spotify simplificado) usando Grid, Flex, Responsividade e Animações.
