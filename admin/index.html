@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Painel Administrativo | CodinDev</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+
+<div id="screen-login">
+    <div class="login-card">
+        <div class="login-logo">
+            <div class="logo-text">Cod<span>in</span>Dev</div>
+            <span class="badge-admin">Painel Admin</span>
+        </div>
+
+        <h2>Acesso Restrito</h2>
+        <p class="sub">Esta área é exclusiva para administradores e moderadores.</p>
+
+        <form id="form-login-admin" onsubmit="fazerLogin(event)">
+            <div class="field">
+                <label for="input-usuario">Usuário</label>
+                <input type="text" id="input-usuario" placeholder="Digite seu usuário" autocomplete="username" required>
+            </div>
+            <div class="field">
+                <label for="input-senha">Senha</label>
+                <input type="password" id="input-senha" placeholder="Digite sua senha" autocomplete="current-password" required>
+            </div>
+            <button type="submit" class="btn-login" id="btn-entrar">
+                <i class="fa-solid fa-lock-open"></i> Entrar no Painel
+            </button>
+        </form>
+
+        <div id="login-erro" class="login-erro">
+            <i class="fa-solid fa-circle-exclamation"></i>
+            <span id="login-erro-msg">Usuário ou senha incorretos.</span>
+        </div>
+
+        <p class="login-footer">
+            Área de acesso restrito.<br>
+            Usuários comuns não devem estar aqui.
+        </p>
+    </div>
+</div>
+
+<div id="screen-app">
+    <div class="app-layout">
+
+        <aside class="sidebar" id="sidebar" role="navigation" aria-label="Menu administrativo">
+            <div class="sidebar-header">
+                <div class="sidebar-logo">Cod<span>in</span>Dev</div>
+                <span class="sidebar-badge">Painel de Controle</span>
+            </div>
+
+            <nav class="sidebar-nav">
+                <div class="nav-section-label">Principal</div>
+                <div class="nav-item active" onclick="navegarPara('dashboard')" data-secao="dashboard">
+                    <i class="fa-solid fa-chart-pie"></i> Visão Geral
+                </div>
+
+                <div class="nav-section-label">Gerenciamento</div>
+                <div class="nav-item" onclick="navegarPara('usuarios')" data-secao="usuarios">
+                    <i class="fa-solid fa-users"></i> Usuários
+                    <span class="badge-count" id="badge-usuarios-banidos" style="display:none">!</span>
+                </div>
+                <div class="nav-item" onclick="navegarPara('conteudo')" data-secao="conteudo">
+                    <i class="fa-solid fa-book-open"></i> Conteúdo
+                </div>
+                <div class="nav-item" onclick="navegarPara('arquivos')" data-secao="arquivos">
+                    <i class="fa-solid fa-folder-open"></i> Páginas & Arquivos
+                </div>
+
+                <div class="nav-section-label">Sistema</div>
+                <div class="nav-item" onclick="navegarPara('logs')" data-secao="logs">
+                    <i class="fa-solid fa-scroll"></i> Logs de Ações
+                </div>
+                <div class="nav-item" onclick="navegarPara('sistema')" data-secao="sistema">
+                    <i class="fa-solid fa-gear"></i> Sistema
+                </div>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="admin-info">
+                    <div class="admin-avatar" id="admin-avatar-initials">A</div>
+                    <div>
+                        <span class="admin-name" id="admin-display-nome">Admin</span>
+                        <span class="admin-role" id="admin-display-role">Administrador</span>
+                    </div>
+                </div>
+                <button class="btn-sair" onclick="fazerLogout()">
+                    <i class="fa-solid fa-right-from-bracket"></i> Sair do Painel
+                </button>
+            </div>
+        </aside>
+
+        <div class="main-content">
+            <header class="topbar">
+                <div class="topbar-title">
+                    <button class="btn-hamburger" id="btn-hamburger" onclick="toggleSidebar()" aria-label="Abrir menu">
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
+                    <i class="fa-solid fa-shield-halved"></i>
+                    <span id="topbar-titulo">Visão Geral</span>
+                </div>
+                <span class="topbar-time" id="topbar-relogio"></span>
+            </header>
+
+            <div class="page-content">
+
+                <section id="sec-dashboard" class="secao ativa">
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-icon purple"><i class="fa-solid fa-user"></i></div>
+                            <div class="stat-info">
+                                <div class="label">Usuário Ativo</div>
+                                <div class="value" id="dash-nome-usuario">—</div>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon green"><i class="fa-solid fa-users"></i></div>
+                            <div class="stat-info">
+                                <div class="label">Usuários Gerenciados</div>
+                                <div class="value" id="dash-total-usuarios">0</div>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon amber"><i class="fa-solid fa-book"></i></div>
+                            <div class="stat-info">
+                                <div class="label">Cursos Ativos</div>
+                                <div class="value" id="dash-cursos-ativos">—</div>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon red"><i class="fa-solid fa-ban"></i></div>
+                            <div class="stat-info">
+                                <div class="label">Páginas em Manutenção</div>
+                                <div class="value" id="dash-paginas-desativadas">0</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="quick-actions">
+                        <button class="btn btn-primary" onclick="navegarPara('usuarios')">
+                            <i class="fa-solid fa-user-plus"></i> Adicionar Usuário
+                        </button>
+                        <button class="btn btn-secondary" onclick="navegarPara('conteudo')">
+                            <i class="fa-solid fa-toggle-on"></i> Gerenciar Conteúdo
+                        </button>
+                        <button class="btn btn-ghost" onclick="navegarPara('logs')">
+                            <i class="fa-solid fa-clock-rotate-left"></i> Ver Logs
+                        </button>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header">
+                            <h3><i class="fa-solid fa-person-running"></i> Usuário Atual no Sistema</h3>
+                        </div>
+                        <div id="dash-info-usuario"></div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header">
+                            <h3><i class="fa-solid fa-clock-rotate-left"></i> Ações Recentes</h3>
+                            <button class="btn btn-ghost btn-sm" onclick="navegarPara('logs')">Ver todos</button>
+                        </div>
+                        <div id="dash-logs-recentes"></div>
+                    </div>
+                </section>
+
+                <section id="sec-usuarios" class="secao">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3><i class="fa-solid fa-user-tie"></i> Usuário do Sistema (localStorage)</h3>
+                            <button class="btn btn-warning btn-sm" onclick="abrirModalEditarUsuarioAtual()">
+                                <i class="fa-solid fa-pen"></i> Editar
+                            </button>
+                        </div>
+                        <div id="tabela-usuario-atual"></div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header">
+                            <h3><i class="fa-solid fa-users"></i> Usuários Gerenciados (Ranking)</h3>
+                            <button class="btn btn-primary btn-sm" onclick="abrirModalNovoUsuario()">
+                                <i class="fa-solid fa-plus"></i> Adicionar
+                            </button>
+                        </div>
+                        <div class="table-wrapper">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Nome</th>
+                                        <th>Nível</th>
+                                        <th>XP Total</th>
+                                        <th>Status</th>
+                                        <th>Ações</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="tabela-usuarios-gerenciados"></tbody>
+                            </table>
+                        </div>
+                        <div id="empty-usuarios" class="empty-state" style="display:none">
+                            <i class="fa-solid fa-users"></i>
+                            <p>Nenhum usuário gerenciado ainda.<br>Clique em "Adicionar" para criar um.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="sec-conteudo" class="secao">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3><i class="fa-solid fa-graduation-cap"></i> Cursos Disponíveis</h3>
+                        </div>
+                        <div id="lista-cursos-toggle"></div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header">
+                            <h3><i class="fa-solid fa-puzzle-piece"></i> Funcionalidades do Site</h3>
+                        </div>
+                        <div id="lista-features-toggle"></div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header">
+                            <h3><i class="fa-solid fa-bullhorn"></i> Anúncio Global</h3>
+                        </div>
+                        <div class="form-grid">
+                            <div class="form-group form-full">
+                                <label>Texto do Anúncio</label>
+                                <textarea id="anuncio-texto" placeholder="Ex: Manutenção programada para sábado às 22h..."></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label>Tipo</label>
+                                <select id="anuncio-tipo">
+                                    <option value="info">ℹ️ Informação</option>
+                                    <option value="success">✅ Sucesso / Novidade</option>
+                                    <option value="warning">⚠️ Aviso</option>
+                                    <option value="danger">🚨 Urgente</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Status</label>
+                                <select id="anuncio-ativo">
+                                    <option value="false">Inativo</option>
+                                    <option value="true">Ativo (visível para usuários)</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div id="anuncio-preview-box"></div>
+                        <div style="margin-top:14px; display:flex; gap:10px;">
+                            <button class="btn btn-primary" onclick="salvarAnuncio()">
+                                <i class="fa-solid fa-floppy-disk"></i> Salvar Anúncio
+                            </button>
+                            <button class="btn btn-ghost" onclick="previewAnuncio()">
+                                <i class="fa-solid fa-eye"></i> Preview
+                            </button>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="sec-arquivos" class="secao">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3><i class="fa-solid fa-globe"></i> Páginas do Site</h3>
+                        </div>
+                        <p style="font-size:0.8rem; color:var(--text-s); margin-bottom:16px;">
+                            Páginas em manutenção exibem uma mensagem de indisponibilidade para usuários comuns.
+                            Administradores têm acesso irrestrito.
+                        </p>
+                        <div id="lista-paginas"></div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header">
+                            <h3><i class="fa-solid fa-file-code"></i> Arquivos de Script & Estilo</h3>
+                        </div>
+                        <p style="font-size:0.8rem; color:var(--text-s); margin-bottom:16px;">
+                            Listagem informativa dos principais arquivos do projeto.
+                        </p>
+                        <div id="lista-arquivos-estaticos"></div>
+                    </div>
+                </section>
+
+                <section id="sec-logs" class="secao">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3><i class="fa-solid fa-scroll"></i> Registro de Ações</h3>
+                            <button class="btn btn-danger btn-sm" onclick="limparLogs()">
+                                <i class="fa-solid fa-trash"></i> Limpar Logs
+                            </button>
+                        </div>
+                        <div id="lista-logs"></div>
+                        <div id="empty-logs" class="empty-state" style="display:none">
+                            <i class="fa-solid fa-scroll"></i>
+                            <p>Nenhuma ação registrada ainda.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="sec-sistema" class="secao">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3><i class="fa-solid fa-sliders"></i> Configurações do Sistema</h3>
+                        </div>
+                        <div class="toggle-row">
+                            <div class="toggle-info">
+                                <div class="title">Modo Desenvolvedor Global</div>
+                                <div class="desc">Libera conteúdo bloqueado para o usuário ativo no navegador.</div>
+                            </div>
+                            <label class="switch">
+                                <input type="checkbox" id="toggle-devmode" onchange="toggleDevModeGlobal(this.checked)">
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="action-cards">
+                        <div class="action-card">
+                            <i class="fa-solid fa-file-export" style="color:var(--info)"></i>
+                            <h4>Exportar Dados</h4>
+                            <p>Baixa um arquivo JSON com todos os dados do usuário atual (localStorage).</p>
+                            <button class="btn btn-primary" onclick="exportarDados()">
+                                <i class="fa-solid fa-download"></i> Exportar
+                            </button>
+                        </div>
+
+                        <div class="action-card">
+                            <i class="fa-solid fa-file-import" style="color:var(--success)"></i>
+                            <h4>Importar Dados</h4>
+                            <p>Restaura dados a partir de um arquivo JSON exportado anteriormente.</p>
+                            <input type="file" id="input-importar" accept=".json" style="display:none" onchange="importarDados(event)">
+                            <button class="btn btn-success" onclick="document.getElementById('input-importar').click()">
+                                <i class="fa-solid fa-upload"></i> Importar
+                            </button>
+                        </div>
+
+                        <div class="action-card">
+                            <i class="fa-solid fa-rotate-right" style="color:var(--warning)"></i>
+                            <h4>Resetar Usuário Ativo</h4>
+                            <p>Apaga todo o progresso do usuário logado no navegador atual.</p>
+                            <button class="btn btn-warning" onclick="confirmarResetUsuario()">
+                                <i class="fa-solid fa-rotate-right"></i> Resetar
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="danger-zone" style="margin-top:20px">
+                        <h4><i class="fa-solid fa-triangle-exclamation"></i> Zona de Perigo</h4>
+                        <div class="action-cards">
+                            <div class="action-card" style="border-color:rgba(239,68,68,0.2)">
+                                <i class="fa-solid fa-skull" style="color:var(--danger)"></i>
+                                <h4>Reset Total do Sistema</h4>
+                                <p>Remove TODOS os dados do sistema, incluindo usuários gerenciados, logs, configurações admin e progresso do usuário.</p>
+                                <button class="btn btn-danger" onclick="confirmarResetTotal()">
+                                    <i class="fa-solid fa-bomb"></i> Reset Total
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+            </div></div></div></div><div id="modal-usuario" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-usuario-titulo">
+    <div class="modal-box">
+        <div class="modal-header">
+            <h3 id="modal-usuario-titulo">Adicionar Usuário</h3>
+            <button class="btn-fechar-modal" onclick="fecharModal('modal-usuario')" aria-label="Fechar">&times;</button>
+        </div>
+        <input type="hidden" id="modal-usuario-id">
+        <div class="form-grid">
+            <div class="form-group">
+                <label>Nome</label>
+                <input type="text" id="mu-nome" placeholder="Nome do usuário" maxlength="20">
+            </div>
+            <div class="form-group">
+                <label>Nível</label>
+                <input type="number" id="mu-nivel" min="1" max="999" value="1">
+            </div>
+            <div class="form-group">
+                <label>XP da Barra (0-2000)</label>
+                <input type="number" id="mu-xp" min="0" max="1999" value="0">
+            </div>
+            <div class="form-group">
+                <label>Título</label>
+                <select id="mu-titulo">
+                    <option value="Iniciante">🌱 Iniciante</option>
+                    <option value="BugHunter">🐛 Bug Hunter</option>
+                    <option value="MestreCSS">🎨 Artista CSS</option>
+                    <option value="BackendGod">⚙️ Backend God</option>
+                    <option value="FullStack">🚀 Full Stack</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Aura</label>
+                <select id="mu-aura">
+                    <option value="none">Nenhuma</option>
+                    <option value="purple">Roxa (Nível 50+)</option>
+                    <option value="gold">Dourada (Nível 200+)</option>
+                    <option value="red">Vermelha (Nível 500+)</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Status</label>
+                <select id="mu-status">
+                    <option value="ativo">Ativo</option>
+                    <option value="banido">Banido</option>
+                </select>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-ghost" onclick="fecharModal('modal-usuario')">Cancelar</button>
+            <button class="btn btn-primary" onclick="salvarUsuario()">
+                <i class="fa-solid fa-floppy-disk"></i> Salvar
+            </button>
+        </div>
+    </div>
+</div>
+
+<div id="modal-usuario-atual" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-ua-titulo">
+    <div class="modal-box">
+        <div class="modal-header">
+            <h3 id="modal-ua-titulo">Editar Usuário Atual</h3>
+            <button class="btn-fechar-modal" onclick="fecharModal('modal-usuario-atual')" aria-label="Fechar">&times;</button>
+        </div>
+        <div class="form-grid">
+            <div class="form-group">
+                <label>Nome</label>
+                <input type="text" id="ua-nome" maxlength="20">
+            </div>
+            <div class="form-group">
+                <label>Nível</label>
+                <input type="number" id="ua-nivel" min="1" max="999">
+            </div>
+            <div class="form-group">
+                <label>XP da Barra (0-2000)</label>
+                <input type="number" id="ua-xp" min="0" max="1999">
+            </div>
+            <div class="form-group">
+                <label style="display:flex; align-items:center; gap:5px;">
+                    <img src="../codin/procyons.png" alt="" style="width: 14px;"> Procyons
+                </label>
+                <input type="number" id="ua-saldo" min="0">
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-ghost" onclick="fecharModal('modal-usuario-atual')">Cancelar</button>
+            <button class="btn btn-primary" onclick="salvarUsuarioAtual()">
+                <i class="fa-solid fa-floppy-disk"></i> Salvar
+            </button>
+        </div>
+    </div>
+</div>
+
+<div id="modal-confirmar" class="modal-overlay" role="alertdialog" aria-modal="true" aria-labelledby="modal-conf-titulo">
+    <div class="modal-box">
+        <div class="modal-header">
+            <h3 id="modal-conf-titulo">Confirmar Ação</h3>
+            <button class="btn-fechar-modal" onclick="fecharModal('modal-confirmar')" aria-label="Fechar">&times;</button>
+        </div>
+        <p id="modal-conf-msg" style="color:var(--text-s); font-size:0.9rem; line-height:1.6;"></p>
+        <div class="modal-footer">
+            <button class="btn btn-ghost" onclick="fecharModal('modal-confirmar')">Cancelar</button>
+            <button class="btn btn-danger" id="btn-conf-confirmar">Confirmar</button>
+        </div>
+    </div>
+</div>
+
+<div class="toast-container" id="toast-container" aria-live="polite"></div>
+
+<script src="admin-credentials.js"></script>
+<script src="admin.js"></script>
+</body>
+</html>

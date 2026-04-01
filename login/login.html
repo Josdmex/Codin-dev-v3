@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | Codin</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@600&family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+
+    <header class="cabecalho">
+        <div class="logo-container">
+            Cod<span>in</span>
+        </div>
+        <div class="rodape-links">
+            <a href="#">SOBRE</a>
+            <a href="#">CARREIRA</a>
+            <a href="#">INVESTIDORES</a>
+        </div>
+        <div class="seletor-idioma">
+            IDIOMA: PORTUGUÊS <i class="fa-solid fa-chevron-down"></i>
+        </div>
+    </header>
+
+    <div class="wrapper-principal">
+        <div class="container-login">
+            
+            <section class="secao-apresentacao">
+                <div class="cena-mascote">
+                    <i class="fa-brands fa-js icone-flutuante icone-1"></i>
+                    <i class="fa-brands fa-html5 icone-flutuante icone-2"></i>
+                    <i class="fa-brands fa-python icone-flutuante icone-3"></i>
+                    <i class="fa-solid fa-code icone-flutuante icone-4"></i>
+                    <i class="fa-solid fa-database icone-flutuante icone-5"></i>
+
+                    <div class="display-mascote">
+                        <img src="../codin/codinlogin.png" class="mascote-principal" alt="Mascote Codin">
+                    </div>
+                </div>
+
+                <h1>Aprenda a programar<br>de graça.</h1>
+                <p class="subtitulo-apresentacao">O jeito divertido, <span class="destaque">prático</span> e eficaz de dominar o código.</p>
+            </section>
+
+            <section class="secao-formulario">
+                
+                <div id="janela-login" class="cartao-login">
+                    
+                    <div id="conteudo-abertura" class="conteudo-abertura">
+                        <h1 class="logo-glitch" data-text="Codin-Dev">Codin-Dev</h1>
+                    </div>
+
+                    <div id="interface-real" class="interface-real">
+                        <div class="cabecalho-interface">
+                            <h2>Comece agora</h2>
+                        </div>
+
+                        <div id="opcoes-iniciais" class="opcoes-navegacao">
+                            
+                            <button class="btn-padrao primario" onclick="mostrarFormulario('cadastro')">
+                                CRIAR PERFIL
+                            </button>
+                            <button class="btn-padrao secundario" onclick="mostrarFormulario('login')">
+                                JÁ TENHO CONTA
+                            </button>
+
+                            <div class="divisor">
+                                <span>OU</span>
+                            </div>
+
+                            <div class="login-social">
+                                <button class="btn-social google">
+                                    <i class="fa-brands fa-google"></i> Google
+                                </button>
+                                <button class="btn-social github">
+                                    <i class="fa-brands fa-github"></i> GitHub
+                                </button>
+                            </div>
+
+                            <p class="texto-termos">
+                                Ao entrar, você concorda com nossos <a href="#">Termos</a> e <a href="#">Privacidade</a>.
+                            </p>
+                        </div>
+
+                        <form id="form-login" class="form-oculto" onsubmit="realizarLogin(event)">
+                            <div class="grupo-input">
+                                <input type="text" id="login-usuario" placeholder="Nome de usuário ou email" required>
+                            </div>
+                            <div class="grupo-input">
+                                <input type="password" id="login-senha" placeholder="Senha" required>
+                            </div>
+                            <button type="submit" class="btn-padrao primario">ENTRAR</button>
+                            <button type="button" class="btn-texto" onclick="voltarOpcoes()">VOLTAR</button>
+                        </form>
+
+                        <form id="form-cadastro" class="form-oculto" onsubmit="realizarCadastro(event)">
+                            <div class="grupo-input">
+                                <input type="text" id="cad-nome" placeholder="Seu nome" required>
+                            </div>
+                            <div class="grupo-input">
+                                <input type="email" id="cad-email" placeholder="Email" required>
+                            </div>
+                            <div class="grupo-input">
+                                <input type="password" id="cad-senha" placeholder="Senha" required>
+                            </div>
+                            <button type="submit" class="btn-padrao primario">CRIAR CONTA</button>
+                            <button type="button" class="btn-texto" onclick="voltarOpcoes()">VOLTAR</button>
+                        </form>
+                    </div>
+
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <script src="login.js"></script>
+</body>
+</html>
