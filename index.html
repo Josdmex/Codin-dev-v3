@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Codin</title>
+  <script src="./js/auth.js"></script>
+  <link rel="stylesheet" href="./css/index.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+    <div class="left">
+      <div class="logo">
+        <h2>Cod<span>in</span></h2>
+        <span class="free">Free</span>
+      </div>
+
+      <ul class="nav-links">
+        <a href="./paginas/cursos.html"><li><span class="material-symbols-outlined" style="font-size: 20px;">book_ribbon</span> Cursos</li></a>
+        <a href="./paginas/missoes.html"><li><span class="material-symbols-outlined" style="font-size: 20px;">adjust</span> Missões</li></a>
+        <a href="./paginas/loja.html"><li><span class="material-symbols-outlined" style="font-size: 20px;">shopping_bag</span> Loja do Codin</li></a>
+        <a href="./paginas/ranking.html"><li><span class="material-symbols-outlined" style="font-size: 20px;">trophy</span> Ranking</li></a>
+        <a href="./paginas/perfil.html"><li><span class="material-symbols-outlined" style="font-size: 20px;">person</span> Perfil</li></a>
+      </ul>
+    </div>
+
+    <div class="right-side">
+      <div class="menu-separado">
+        <div class="level" id="badge-nivel-container">
+            <i class="fa-regular fa-star"></i> 
+            <span id="nivel-usuario">Nível 1</span>
+
+            <div class="progress">
+                <div class="bar" id="barra-xp-navbar" style="width: 0%"></div>
+            </div>
+        </div>
+
+        <div class="xp-pill">
+          <img src="./codin/procyons.png" alt="Procyons" style="width: 18px; vertical-align: middle; margin-right: 5px;">
+          <span id="saldo-navbar">0</span>
+        </div>
+
+        <div class="hearts-pill" id="vidas-navbar">
+          <i class="fa-solid fa-heart"></i>
+          <i class="fa-solid fa-heart"></i>
+          <i class="fa-solid fa-heart"></i>
+          <i class="fa-solid fa-heart"></i>
+          <i class="fa-solid fa-heart"></i>
+        </div>
+
+        <div class="fire-pill">
+          <i class="fa-solid fa-fire"></i>
+          <span id="streak-navbar">0</span>
+        </div>
+
+        <div class="upgrade" onclick="window.location.href='./paginas/planos.html'" style="cursor:pointer;">
+          <span class="material-symbols-outlined" style="font-size: 20px;">crown</span>
+          <p>Upgrade</p>
+        </div>
+      </div>
+        <a href="./paginas/configuracoes.html" aria-label="Abrir configurações"><div class="menu" role="button" aria-label="Menu">
+          <div class="line1"></div>
+          <div class="line2"></div>
+          <div class="line3"></div>
+        </div></a>
+    </div>
+  </nav>
+
+  <div id="admin-anuncio-banner" style="display:none; background:#6366f1; color:#fff; text-align:center; padding:10px 24px; font-size:0.88rem; font-weight:500; line-height:1.5;">
+    <i class="fa-solid fa-bullhorn" style="margin-right:8px;"></i>
+    <span id="admin-anuncio-texto"></span>
+  </div>
+
+    <div class="container">
+        <main class="conteudo-principal">
+            <section class="caixa-boas-vindas">
+                <div class="cabecalho-boas-vindas">
+                    <h2>Olá, Programador! 👋</h2>
+                    <p>Continue sua jornada de aprendizado com o Codin!</p>
+                </div>
+                
+                <div class="imagem-guaxinim">
+                    </div>
+
+                <div class="estatisticas-usuario">
+                    <div class="item-estatistica">
+                        <i class="fa-solid fa-fire"></i>
+                        <span id="streak-dashboard">0 dias</span>
+                    </div>
+                    
+                    <div class="item-estatistica">
+                        <i class="fas fa-medal"></i>
+                        <span id="nivel-dashboard">Carregando...</span>
+                    </div>
+                    
+                    <div class="item-estatistica">
+                        <img src="./codin/procyons.png" alt="Procyons" style="width: 18px; vertical-align: middle; margin-right: 5px;">
+                        <span id="saldo-dashboard">Carregando...</span>
+                    </div>
+                </div>
+                
+                <button id="btn-jornada-principal" class="botao-continuar-aprendendo" onclick="continuarJornada()">
+                    <i class="fas fa-play"></i>
+                    Continuar Aprendendo
+                </button>
+            </section>
+
+            <div class="section-missoes">
+                <div class="header-section">
+                    <h3><i class="fas fa-clock"></i> Missões semanais</h3>
+                </div>
+                <div id="lista-missoes-dashboard" class="lista-dashboard">
+
+                </div>
+            </div>
+        </main>
+        
+        <aside class="barra-lateral">
+            
+            <div class="cartao meu-codin">
+                <h3>Meu Codin</h3>
+                <div class="avatar-codin">
+                </div>
+                
+                <a href="./paginas/loja.html"><button class="botao-personalizar">Personalizar Codin</button></a>
+            </div>
+
+            <div class="cartao missao-diaria" id="card-missao-diaria-home">
+                <h3><i class="fas fa-clock"></i> Missão Diária <a href="./paginas/missoes.html" class="ver-todos">Ver todas</a></h3>
+                <p>Complete 3 lições</p>
+                <div class="container-barra-progresso">
+                    <div class="barra-progresso" id="barra-missao-diaria-home" style="width: 0%;"></div>
+                    <span class="texto-progresso" id="texto-missao-diaria-home">0/3</span>
+                </div>
+                <p class="recompensa" id="recompensa-missao-diaria-home">
+                    <img src="./codin/procyons.png" alt="Procyons" style="width: 16px; vertical-align: middle; margin-right: 5px;"> Recompensa: 50 Procyons
+                </p>
+            </div>
+            
+            <div class="cartao ranking-global">
+                <h3><i class="fas fa-trophy"></i> Ranking global</h3>
+                <div class="icone-ranking">
+                    <i class="fas fa-crown"></i>
+                </div>
+                <p>Confira sua posição no Ranking de ofensivas!</p>
+                <button class="botao-visitar-ranking">Visitar Ranking</button>
+            </div>
+            
+            <div class="cartao conquistas">
+                <h3><i class="fas fa-star"></i> Conquistas <a href="#" class="ver-todos">Ver ranking</a></h3>
+                <div class="item-conquista">
+                    <i class="fas fa-fire"></i>
+                    <p><strong>Sequência de 7 dias</strong><br>Mantenha o foco!</p>
+                </div>
+                <div class="item-conquista">
+                    <i class="fas fa-bullseye"></i>
+                    <p><strong>100 lições</strong><br>Dedicação total!</p>
+                </div>
+                <div class="item-conquista">
+                    <i class="fas fa-book"></i>
+                    <p><strong>Python Básico</strong><br>Primeira linguagem!</p>
+                </div>
+            </div>
+
+        </aside>
+        
+    </div>
+    <section class="secao2">
+        <div class="topo">
+            <h2>Seus Cursos</h2>
+            <a href="./paginas/cursos.html" class="ver-mais">Ver Tudo →</a>
+        </div>
+        <div class="cards-cursos">
+            <div class="card1 card">
+                <h3>
+                    <span class="material-symbols-outlined" style="font-size: 40px;">network_intel_node</span> 
+                    Lógica de Programação 
+                    <a href="#" class="free">free</a>
+                </h3>
+                
+                <p id="contador-logica">0/42 lições</p>
+                
+                <div class="container-barra-progresso">
+                    <div id="barra-logica" class="barra-progresso" style="width: 0%;"></div>
+                    
+                    <span id="porcentagem-logica" class="texto-progresso">0%</span>
+                </div>
+                
+                <button id="btn-curso-logica" class="botao-continuar-aprendendo-2" onclick="window.location.href='missoes_menu.html?modo=curso_logica'">
+                    <i class="fas fa-play"></i> Continuar
+                </button>
+            </div>
+
+            <div class="card2 card">
+                <h3>
+                    <i class="fa-brands fa-html5" style="font-size: 40px;"></i> 
+                    HTML & CSS (Básico)
+                    <span class="badge-premio" title="Complete 100% para ganhar um prêmio!">🎁</span>
+                    <a href="#" class="free">free</a>
+                </h3>
+                
+                <p id="contador-html">0/28 lições</p>
+                
+                <div class="container-barra-progresso">
+                    <div id="barra-html" class="barra-progresso" style="width: 0%;"></div>
+                    <span id="porcentagem-html" class="texto-progresso">0%</span>
+                </div>
+
+                <div class="area-acao-card" style="margin-top: 15px;">
+                    
+                    <button id="btn-continuar-html" class="botao-continuar-aprendendo-2" onclick="window.location.href='./paginas/missoes_menu.html?modo=curso_html_css'">
+                        <i class="fas fa-play"></i> Continuar
+                    </button>
+
+                    <button id="btn-apostila-html" class="btn-recompensa" onclick="baixarApostila()" style="display: none;">
+                        <i class="fas fa-file-pdf"></i> Baixar Apostila
+                    </button>
+                    
+                </div>
+            </div>
+
+            <div class="card3 card">
+                <h3><i class="fa-brands fa-python" style="font-size: 40px;"></i> Python <a href="#" class="free"><span class="material-symbols-outlined" style="font-size: 20px;">crown</span>Plus</a></h3>
+                <p>0/35 lições <i class="fa-solid fa-lock"></i></p>
+                <div class="container-barra-progresso">
+                    <div class="barra-progresso" style="width: 0%;"></div>
+                    <span class="texto-progresso">0%</span>
+                </div>
+                <button class="botao-continuar-aprendendo-2" onclick="window.location.href='./paginas/planos.html'">
+                    <i class="fas fa-play"></i> Ver Planos
+                </button>
+            </div>
+        </div>
+    </section>
+    <section class="caixa-footer">
+            <div class="cabecalho-footer">
+                    <h2>Desbloqueie todo o Potencial! 🚀 </h2>
+                    <p>Acesse todas as linguagens, vidas infinitas e muito mais por apenas R$29,90/Mês</p>
+            </div>
+                
+                <i class="fa-solid fa-star" style="font-size: 80px;"></i>
+                
+            <button class="botao-continuar-aprendendo" onclick="window.location.href='./paginas/planos.html'">
+                Upgrade para Plus
+            </button>
+    </section>
+    <div id="modal-levelup" class="modal-overlay" style="display: none;" role="dialog" aria-modal="true" aria-labelledby="levelup-titulo">
+    <div class="card-levelup scale-up">
+        <h1 class="titulo-levelup" id="levelup-titulo">LEVEL UP!</h1>
+        
+        <div class="mascote-container">
+            <img id="img-evolucao" src="" alt="Codin Evoluído" class="mascote-animado" loading="lazy">
+        </div>
+        
+        <div class="nivel-badge">
+            <span style="font-size: 0.5em; display:block; color:#666;">Você alcançou o Nível</span>
+            <span id="numero-nivel-novo">0</span>
+        </div>
+
+        <button class="btn-proximo" onclick="fecharModalLevelUp()">
+            Incrível! <i class="fas fa-star"></i>
+        </button>
+    </div>
+    </div>
+    <script src="script.js"></script><script src="missoes_logica.js"></script>
+</body>
+</html>

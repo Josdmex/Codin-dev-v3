@@ -1,0 +1,984 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+}
+
+body {
+  background-color: #ffffff;
+  color: #333;
+  line-height: 1.6;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 32px;
+  border-bottom: 1.5px solid #c4b9b9;
+  height: 60px;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: #222;
+}
+
+/* ==== LOGO ==== */
+.left {
+  display: flex;
+  align-items: center;
+  gap: 26px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.logo h2 {
+  font-size: 26px;
+  font-weight: 700;
+}
+
+.logo h2 span {
+  color: #007bff;
+}
+
+.free {
+  background: #007bff;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 14px;
+}
+
+/* ==== LINKS ==== */
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 15px;
+  color: #222;
+  font-weight: 500;
+}
+
+.nav-links li {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  cursor: pointer;
+  font-size: 15px;
+  padding: 8px 5.5px;
+  border-radius: 6px;
+}
+
+.nav-links li i {
+  font-size: 15px;
+}
+
+.nav-links li:hover {
+  background-color: rgb(252, 244, 244);
+}
+
+/* ==== DIREITA ==== */
+.right-side {
+  margin-right: 10px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.menu-separado {
+  margin-right: 25px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* NÍVEL */
+.level {
+  position: relative;
+  background: #007bff;
+  color: #fff;
+  padding: 7px 14px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 90px;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.level .progress {
+  position: absolute;
+  bottom: 2px;
+  left: 4px;
+  width: 90%;
+  height: 4px;
+  background: rgba(0, 0, 0, 0.575);
+  border-radius: 8px;
+}
+
+.level .bar {
+  height: 100%;
+  width: 50%; /* Progresso */
+  background: #fff;
+  border-radius: 8px;
+}
+
+/* XP */
+.xp-pill {
+  background: #c7f6cf;
+  padding: 7px 12px;
+  border-radius: 8px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  color: #0a0a0a;
+}
+
+/* Corações */
+.hearts-pill {
+  background: #f2f2f2;
+  padding: 7px 12px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: #ff4a4a;
+  font-size: 14px;
+}
+
+/* Foguinho */
+.fire-pill {
+  background: #fff6de;
+  padding: 7px 12px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-weight: 700;
+  color: #c58a00;
+  font-size: 14px;
+}
+
+/* Upgrade */
+.upgrade {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: linear-gradient(90deg, #c02654, #b14bff);
+  color: #fff;
+  padding: 7px 14px;
+  border-radius: 10px;
+  font-weight: 700;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+/* Menu */
+.menu div{
+  margin-left: 36px;
+  width: 28px;
+  height: 5px;
+  background: #0D1B2A;
+  margin: 3px;
+  border-radius: 4px;
+}
+
+.menu {
+  cursor: pointer;
+}
+
+.container {
+  width: 100%;
+  max-width: 95%;
+  margin: 20px auto;
+  display: flex;
+  gap: 20px;
+  align-items: stretch; 
+}
+
+.conteudo-principal {
+  flex: 3;
+  min-width: 600px;
+  display: flex;
+  flex-direction: column; 
+}
+
+.barra-lateral {
+  flex: 1;
+  min-width: 300px;
+}
+
+.cartao {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.cartao h3 {
+  font-size: 1.1em;
+  font-weight: 600;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+/* --- Bloco de Boas-Vindas --- */
+.caixa-boas-vindas {
+  background-color: #2753f4; 
+  color: #fff;
+  padding: 30px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  display: grid;
+  grid-template-areas:
+      "cabecalho guaxinim"
+      "estatisticas guaxinim"
+      "botao guaxinim";
+  grid-template-columns: 2fr 1fr;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.cabecalho-boas-vindas {
+  grid-area: cabecalho;
+  margin-bottom: 15px;
+}
+
+.cabecalho-boas-vindas h2 {
+  font-size: 1.8em;
+  font-weight: 800;
+  margin-bottom: 5px;
+}
+
+
+.estatisticas-usuario {
+  grid-area: estatisticas;
+  display: flex;
+  gap: 30px;
+  margin-bottom: 25px;
+}
+
+.item-estatistica i {
+  margin-right: 5px;
+  color: #ffffff;
+}
+
+.botao-continuar-aprendendo {
+  grid-area: botao;
+  background-color: #fff;
+  color: #0d47a1;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-size: 1em;
+  font-weight: 600;
+  cursor: pointer;
+  width: fit-content;
+  display: flex;
+  align-items: center;
+  transition: background-color 0.2s;
+}
+
+.botao-continuar-aprendendo:hover {
+  background-color: #eee;
+}
+
+.botao-continuar-aprendendo i {
+  margin-right: 8px;
+  color: #e53935;
+}
+
+/* --- Missões Semanais --- */
+
+.missoes-semanais {
+  height: 116.9vh; 
+  background-color: #fff; 
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column; 
+}
+
+.missoes-semanais h3 i {
+  margin-right: 8px;
+  color: #0d47a1;
+}
+
+.lista-missoes {
+  margin-top: 15px;
+  padding: 0;
+  flex-grow: 1; /* NOVO: Permite que a lista de missões se estique */
+}
+
+.item-missao {
+  display: flex;
+  align-items: center;
+  padding: 18px 0; 
+  border-bottom: 1px solid #eee;
+}
+
+.numero-missao-circulo {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  border: 2px solid #ccc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 600;
+  font-size: 1em; /* Aumenta o texto */
+  color: #777;
+  margin-right: 20px; /* Aumenta o espaçamento */
+}
+
+.numero-missao-circulo1 {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  border: 2px solid #007bff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 600;
+  font-size: 1em; /* Aumenta o texto */
+  color: #ffffff;
+  margin-right: 20px; /* Aumenta o espaçamento */
+  background-color: #007bff;
+}
+
+.detalhes-missao {
+  flex-grow: 1;
+}
+
+.titulo-missao {
+  font-weight: 500;
+  color: #333;
+  font-size: 1.3em; 
+}
+
+.badge-status {
+  background-color: #e8f5e9;
+  color: #2e7d32;
+  padding: 3px 10px; /* Aumenta o padding do badge */
+  border-radius: 4px;
+  font-size: 0.8em;
+  font-weight: 600;
+  margin-left: 10px;
+}
+
+.botao-continuar {
+  background-color: #0d47a1;
+  color: #fff;
+  border: none;
+  padding: 10px 18px; /* Aumenta o padding do botão */
+  border-radius: 6px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.botao-continuar:hover {
+  background-color: #1976d2;
+}
+
+/* --- Barra Lateral Componentes --- */
+.barra-lateral .cartao h3 i {
+  margin-right: 5px;
+  color: #0d47a1;
+}
+
+/* Meu Codin */
+.meu-codin {
+   text-align: center;
+}
+
+.avatar-codin {
+  width: 210px;
+  height: 130px;
+  /* Foto do Codin */
+  background: url('1000341559.png') no-repeat center center;
+  background-size: 170px;
+  border-radius: 6px; 
+  margin: 0 auto 20px auto;
+  border: 1px solid #ccc;
+}
+
+.botao-personalizar {
+  background: none;
+  border: 1px solid #ccc;
+  color: #555;
+  padding: 8px 15px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  width: 100%;
+  transition: background-color 0.2s;
+}
+
+.botao-personalizar:hover {
+  background-color: #f4f4f4;
+}
+
+/* Missão Diária */
+.missao-diaria h3 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.missao-diaria .ver-todos {
+  font-size: 0.8em;
+  color: #0d47a1;
+  text-decoration: none;
+  font-weight: 400;
+}
+
+.container-barra-progresso {
+  background-color: #e0e0e0;
+  border-radius: 10px;
+  height: 12px;
+  margin: 10px 0;
+  position: relative;
+}
+
+.barra-progresso {
+  height: 100%;
+  background-color: #4caf50;
+  border-radius: 10px;
+  transition: width 0.3s;
+}
+
+.texto-progresso {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 0.75em;
+  font-weight: 600;
+  color: #333;
+}
+
+.recompensa {
+  font-size: 0.9em;
+  color: #4caf50;
+  font-weight: 500;
+}
+
+.recompensa i {
+  color: #ffd700;
+  margin-right: 5px;
+}
+
+/* Ranking Global */
+.ranking-global {
+  text-align: center;
+}
+
+.icone-ranking {
+  font-size: 2.5em;
+  color: #ffc107;
+  margin: 10px 0 15px 0;
+}
+
+.icone-ranking .fa-crown {
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.botao-visitar-ranking {
+  background-color: #fff;
+  border: 2px solid #0d47a1;
+  color: #0d47a1;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 15px;
+  width: 100%;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.botao-visitar-ranking:hover {
+  background-color: #0d47a1;
+  color: #fff;
+}
+
+/* Conquistas */
+.conquistas h3 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.conquistas .ver-todos {
+  font-size: 0.8em;
+  color: #0d47a1;
+  text-decoration: none;
+  font-weight: 400;
+}
+
+.item-conquista {
+  display: flex;
+  margin-bottom: 25px;
+}
+
+.item-conquista i {
+  font-size: 1.5em;
+  margin-right: 15px;
+}
+
+.item-conquista:nth-child(2) i {
+  color: #e53935;
+}
+
+.item-conquista:nth-child(3) i {
+  color: #fdd835;
+}
+
+.item-conquista:nth-child(4) i {
+  color: #43a047;
+}
+
+.item-conquista p {
+  font-size: 0.9em;
+  line-height: 0.8;
+}
+
+.item-conquista strong {
+  font-weight: 600;
+  display: block;
+}
+
+/* Erro supremo */
+
+.secao2 {
+  padding: 20px 0;
+  width: 100%;
+  max-width: 95%;
+  margin: 0 auto;
+}
+
+.secao2 h2{
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.topo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  margin-top: 10px;
+}
+
+.ver-mais {
+  text-decoration: none;
+  color: #0a1128;
+  font-weight: 600;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 6px 14px;
+  transition: 0.3s;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.ver-mais:hover {
+  background: #0a1128;
+  color: #fff;
+  cursor: pointer;
+}
+
+.cards-cursos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.cards-cursos div {
+  transition: 0.3s ease;
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+.cards-cursos h3 a.free {
+  margin-left: auto;
+}
+
+.cards-cursos h3 {
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.cards-cursos .card1 {
+  transition: 0.3s ease;
+  cursor: pointer;
+  border: 1px solid #e5e5e5;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  padding: 20px;
+  height: 29.6vh;
+}
+
+.card1 h3{
+  gap: 20px;
+  display: flex;
+  align-items: center;
+  font-size: 22px;
+}
+
+.card1 a{
+  text-decoration: none;
+}
+
+.card1 p{
+  margin-left: 60px;
+  margin-top: 0px;
+}
+
+.cards-cursos p {
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.cards-cursos .card1:hover {
+  transform: scale(1.02);
+}
+
+.cards-cursos .card2:hover {
+  transform: scale(1.02);
+}
+
+.botao-continuar-aprendendo-2 {
+  grid-area: botao;
+  background-color: #fff;
+  color: #0d47a1;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-size: 1em;
+  font-weight: 600;
+  cursor: pointer;
+  width: fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  gap: 5px;
+  transition: background-color 0.2s;
+  border: 1px solid #e5e5e5;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  margin-top: 20px;
+}
+
+.botao-continuar-aprendendo-2:hover {
+  background-color: #eee;
+}
+
+.botao-continuar-aprendendo-2 .fa-play {
+  margin-right: 8px;
+  color: #e53935;
+}
+
+.cards-cursos .card2 {
+  transition: 0.3s ease;
+  cursor: pointer;
+  border: 1px solid #e5e5e5;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  padding: 20px;
+  height: 29.6vh;
+}
+
+.card2 h3{
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  font-size: 22px;
+}
+
+.card2 a{
+  text-decoration: none;
+}
+
+.card2 p{
+  margin-left: 50px;
+}
+
+.cards-cursos .card3 {
+  transition: 0.3s ease;
+  cursor: pointer;
+  border: 1px solid #c8c8c8;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  padding: 20px;
+  height: 29.6vh;
+  background-color: rgb(238, 238, 238);
+}
+
+.card3 h3{
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  font-size: 22px;
+}
+
+.card3 a{
+  text-decoration: none;
+  display: flex;
+  gap: 3px;
+}
+
+.card3 p{
+  margin-left: 55px;
+  margin-right: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.card3 .free {
+  background: linear-gradient(90deg, #c02654, #b14bff);
+}
+
+.card3 button {
+  width: 230px;
+  background-color: rgb(255, 252, 252);
+  transition: all 0.3s ease;
+}
+
+.card3 button:hover {
+  background-color: rgb(0, 0, 0);
+  color: white;
+}
+
+.caixa-footer {
+  background: linear-gradient(90deg, #c02654, #b14bff);
+  color: #fff;
+  padding: 30px;
+  border-radius: 12px;
+  margin-top: 30px;
+  margin-bottom: 20px;
+  display: grid;
+  grid-template-areas:
+      "cabecalho guaxinim"
+      "estatisticas guaxinim"
+      "botao guaxinim";
+  grid-template-columns: 2fr 1fr;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  max-width: 95%;
+  margin: 30px auto 20px auto;
+  height: 30vh;
+}
+
+.cabecalho-footer {
+  grid-area: cabecalho;
+  margin-bottom: 15px;
+}
+
+.cabecalho-footer h2 {
+  font-size: 1.8em;
+  font-weight: 800;
+  margin-bottom: 5px;
+}
+
+.caixa-footer i {
+  margin-top: 20px;
+  grid-area: guaxinim;
+  background-size: contain;
+  justify-self: end;
+  align-self: start;
+  margin-right: 30px;
+}
+
+.topo2 p{
+  color: rgb(139, 139, 139);
+  margin-bottom: 20px;
+}
+
+/* ESTILO MISSOES------------------------------------------------------ */
+
+:root {
+    /* Cores baseadas na imagem */
+    --cor-primaria: #007bff;
+    --cor-secundaria: #6c757d;
+    --cor-fundo-cartao: #ffffff;
+    --cor-fundo-completa: #e6f3e6;
+    --cor-texto-completa: #388e3c;
+    --cor-xp: #4a90e2;
+    --cor-moeda: #388e3c;
+    --cor-progresso-bg: #e9ecef;
+    --cor-progresso-bar: #388e3c;
+    --cor-header-icon: #fbc02d;
+    --cor-weekly-icon: #e91e63;
+}
+
+/* Reset básico (mantido sem prefixo, pois é global) */
+
+.vs2-sections {
+    display: flex;
+    gap: 30px;
+}
+
+.vs2-daily-missions, .vs2-weekly-missions {
+    flex: 1;
+}
+
+.vs2-section-title {
+    font-size: 18px;
+    font-weight: 500;
+    color: #333;
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 5px;
+}
+
+.vs2-icon {
+    font-size: 20px;
+    margin-right: 10px;
+    color: var(--cor-header-icon); 
+}
+
+.vs2-weekly-icon {
+    color: var(--cor-weekly-icon);
+}
+
+/* Estilo do Cartão */
+.vs2-card {
+    background-color: var(--cor-fundo-cartao);
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    position: relative;
+}
+
+.vs2-completed {
+    background-color: var(--cor-fundo-completa);
+    border-color: var(--cor-progresso-bar);
+}
+
+.vs2-mission-name {
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.vs2-mission-details {
+    font-size: 14px;
+    color: var(--cor-secundaria);
+    margin-bottom: 15px;
+}
+
+.vs2-remaining-time {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 12px;
+    color: #dc3545;
+    padding: 3px 8px;
+    background-color: #f8d7da;
+    border-radius: 4px;
+}
+
+/* Barra de Progresso */
+.vs2-progress-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.vs2-progress-text {
+    font-size: 14px;
+    width: 50px;
+    text-align: right;
+    color: var(--cor-secundaria);
+}
+
+.vs2-progress-bar-bg {
+    flex-grow: 1;
+    height: 8px;
+    background-color: var(--cor-progresso-bg);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.vs2-progress-bar {
+    height: 100%;
+    background-color: var(--cor-progresso-bar);
+    transition: width 0.4s ease-in-out;
+}
+
+.vs2-progress-percentage {
+    font-size: 14px;
+    width: 40px;
+    color: var(--cor-secundaria);
+    text-align: left;
+}
+
+/* Recompensas e Botões */
+.vs2-rewards {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.vs2-reward-coin, .vs2-reward-xp {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.vs2-reward-coin {
+    color: var(--cor-moeda);
+}
+
+.vs2-reward-xp {
+    color: var(--cor-xp);
+}
+
+.vs2-action-button {
+    margin-left: auto;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.vs2-primary-button {
+    background-color: var(--cor-primaria);
+    color: white;
+}
+
+.vs2-primary-button:hover {
+    background-color: #0056b3;
+}
+
+/* Estilo para Missão Completa */
+.vs2-completed .vs2-rewards {
+    justify-content: flex-start;
+}
+
+.vs2-completed-tag {
+    margin-left: auto;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--cor-texto-completa);
+}

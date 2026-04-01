@@ -1,0 +1,25 @@
+# Credenciais do painel admin (nunca commitar)
+admin/admin-credentials.js
+
+# Imagens pessoais / temporárias
+1000341510.png
+1000341511.png
+1000341556.png
+1000341559.png
+
+# Arquivos internos
+codin/roteiro\ de\ missões.txt
+
+# Sistema operacional
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editores
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs locais
+*.log
